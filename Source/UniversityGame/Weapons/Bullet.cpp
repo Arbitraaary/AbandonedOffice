@@ -112,7 +112,7 @@ void ABullet::NotifyHit(class UPrimitiveComponent* MyComp, AActor* Other, class 
 
 	UGameplayStatics::SpawnDecalAttached(
 		DecalMaterial,
-		FVector(2.f, 2.f, 2.f),
+		FVector(8.f, 8.f, 8.f),
 		OtherComp,
 		NAME_None,
 		HitLocation,
