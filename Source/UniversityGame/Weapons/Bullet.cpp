@@ -118,7 +118,7 @@ void ABullet::NotifyHit(class UPrimitiveComponent* MyComp, AActor* Other, class 
 		HitLocation,
 		HitNormal.Rotation(),
 		EAttachLocation::KeepWorldPosition,
-		10.f
+		70.f
 	);
 	
 	Destroy();
