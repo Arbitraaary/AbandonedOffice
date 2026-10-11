@@ -69,13 +69,13 @@ void ABullet::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveCo
 	{
 		const UDecalComponent* Decal = UGameplayStatics::SpawnDecalAttached(
 			DecalMaterial,
-			FVector(2.f, 2.f, 2.f),
+			FVector(8.f, 8.f, 8.f),
 			OtherComp,
 			NAME_None,
 			HitLocation,
 			HitNormal.Rotation(),
 			EAttachLocation::KeepWorldPosition,
-			10.f
+			70.f
 		);
 		UE_LOG(LogTemp, Warning, TEXT("Hit WorldStatic: %s"), *(Other->GetName()));
 	}

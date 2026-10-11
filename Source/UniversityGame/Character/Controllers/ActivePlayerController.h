@@ -7,6 +7,7 @@
 #include "InputMappingContext.h"
 #include "ActivePlayerController.generated.h"
 
+class UGameOverWidget;
 class UPlayerAmmoWidget;
 class UPlayerHealthbarWidget;
 class UInputMappingContext;
@@ -40,6 +41,12 @@ protected:
 	UPROPERTY()
 	UPlayerAmmoWidget* PlayerAmmoWidget;
 
+	UPROPERTY(EditDefaultsOnly, Category = UI)
+	TSubclassOf<UGameOverWidget> GameOverClass;
+	
+	UPROPERTY()
+	UGameOverWidget* GameOverWidget;
+
 public:
 	virtual void SetupInputComponent() override;
 
@@ -56,6 +63,8 @@ public:
 	void UpdateUnequippedAmmoCount(float Count);
 	void UpdateMagCapacity(float Count);
 	void UpdateAmmoInMagCount(float Count);
+	
+	void CreateGameOverWidget();
 
 private:
 

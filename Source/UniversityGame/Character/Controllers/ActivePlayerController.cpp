@@ -5,6 +5,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "NavigationSystemTypes.h"
 #include "Blueprint/UserWidget.h"
+#include "UniversityGame/HUD/GameOverWidget.h"
 #include "UniversityGame/HUD/PlayerAmmoWidget.h"
 #include "UniversityGame/HUD/PlayerHealthbarWidget.h"
 
@@ -126,6 +127,18 @@ void AActivePlayerController::CreateAmmoWidget()
 		if (PlayerAmmoWidget = CreateWidget<UPlayerAmmoWidget>(this, PlayerAmmoClass, TEXT("PlayerAmmoWidget")); PlayerAmmoWidget != nullptr)
 		{
 			PlayerAmmoWidget->AddToViewport();
+		}
+	}
+}
+
+void AActivePlayerController::CreateGameOverWidget()
+{
+	HideCrosshair();
+	if (GameOverClass != nullptr)
+	{
+		if (GameOverWidget = CreateWidget<UGameOverWidget>(this, GameOverClass, TEXT("GameOverWidget")); GameOverWidget != nullptr)
+		{
+			GameOverWidget->AddToViewport();
 		}
 	}
 }

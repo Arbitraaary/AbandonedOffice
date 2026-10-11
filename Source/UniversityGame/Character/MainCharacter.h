@@ -117,6 +117,7 @@ private:
 	
 	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
 
+	void FinishGame();
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

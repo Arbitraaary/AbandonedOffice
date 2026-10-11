@@ -8,7 +8,6 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/PawnMovementComponent.h"
-#include "ProfilingDebugging/CookStats.h"
 #include "UniversityGame/Weapons/BaseWeapon.h"
 
 // Sets default values
@@ -151,14 +150,20 @@ void AMainCharacter::Fire(const FInputActionValue& Value)
 		RV_TraceParams.bReturnPhysicalMaterial = false;
 		
 		FHitResult RV_Hit;
-		GetWorld()->LineTraceSingleByChannel(RV_Hit, CameraLocation, CameraLocation + CameraDirection * 10000.f, ECC_Visibility, RV_TraceParams);
+		FVector TraceEnd = CameraLocation + CameraDirection * 10000.f;
+		GetWorld()->LineTraceSingleByChannel(RV_Hit, CameraLocation, TraceEnd, ECC_Visibility, RV_TraceParams);
 		
-		LaunchDirection = UKismetMathLibrary::Normal(RV_Hit.ImpactPoint - MuzzleLocation);
+		LaunchDirection = RV_Hit.IsValidBlockingHit() ? UKismetMathLibrary::Normal(RV_Hit.ImpactPoint - MuzzleLocation) : UKismetMathLibrary::Normal(TraceEnd - MuzzleLocation);
 		Weapon->Fire(LaunchDirection.Rotation(), LaunchDirection);
 	}
 
 	PlayerController->UpdateUnequippedAmmoCount(Weapon->GetUnequippedAmmoCount());
 	PlayerController->UpdateAmmoInMagCount(Weapon->GetMagazineAmmoCount());
+	
+	if (Weapon->GetUnequippedAmmoCount() == 0 && Weapon->GetMagazineAmmoCount() == 0)
+	{
+		FinishGame();
+	}
 }
 
 void AMainCharacter::Reload(const FInputActionValue& Value)
@@ -201,10 +206,20 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 }
 
-float AMainCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,
-	AActor* DamageCauser)
+void AMainCharacter::FinishGame()
 {
-	Health -= DamageAmount;
+	CanMove = false;
+	CanPlayShotAnim = false;
+	CanShoot = false;
+		
+	PlayerController->CreateGameOverWidget();
+	DisableInput(PlayerController);
+}
+
+float AMainCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,
+                                 AActor* DamageCauser)
+{
+	Health -= UKismetMathLibrary::Clamp(DamageAmount, 0.f, 100.f);
 	PlayerController->UpdateHealthPercentage(Health/MaxHealth);
 	
 	UE_LOG(LogTemp, Warning, TEXT("%s has %f amount of health left. Instigator controller: %s"), *GetName(), Health, *(EventInstigator->GetName()));
@@ -214,6 +229,12 @@ float AMainCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageE
 		CanPlayShotAnim = false;
 		OnBeingShot();
 	}
+	
+	if (Health == 0.f)
+	{
+		FinishGame();
+	}
+	
 	
 	return DamageAmount;
 }
