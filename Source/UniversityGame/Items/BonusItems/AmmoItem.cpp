@@ -12,7 +12,7 @@ AAmmoItem::AAmmoItem()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	
+
 	if (SphereComponent == nullptr)
 	{
 		SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
@@ -26,8 +26,6 @@ AAmmoItem::AAmmoItem()
 	StaticMeshComponent->SetupAttachment(SphereComponent);
 
 	SphereComponent->BodyInstance.SetCollisionProfileName(TEXT("BonusItem"));
-
-
 }
 
 // Called when the game starts or when spawned
@@ -47,14 +45,23 @@ void AAmmoItem::Tick(float DeltaTime)
 	CurrentAscendingRadianValue += ItemAscendingSpeed;
 }
 
-
 void AAmmoItem::NotifyActorBeginOverlap(AActor* OtherActor)
 {
 	Super::NotifyActorBeginOverlap(OtherActor);
 
 	if (AMainCharacter* Player = Cast<AMainCharacter>(OtherActor); Player != nullptr)
 	{
-		Player->GetAmmo(AdditionalAmmoAmount);
-		Destroy();
+		const int Added = Player->GetAmmo(FMath::RoundToInt(AdditionalAmmoAmount));
+		if (Added > 0)
+		{
+			Player->ShowPickupMessage(FText::FromString(FString::Printf(TEXT("+%d AMMO"), Added)),
+				FLinearColor(1.f, 0.85f, 0.3f));
+			Destroy();
+		}
+		else
+		{
+			// reserve already full: the crate stays where it is, so it isn't wasted
+			Player->ShowPickupMessage(FText::FromString(TEXT("AMMO IS FULL")), FLinearColor(0.75f, 0.75f, 0.75f), 1.5f);
+		}
 	}
 }

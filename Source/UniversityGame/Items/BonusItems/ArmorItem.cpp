@@ -12,7 +12,7 @@ AArmorItem::AArmorItem()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	
+
 	if (SphereComponent == nullptr)
 	{
 		SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
@@ -26,7 +26,6 @@ AArmorItem::AArmorItem()
 	StaticMeshComponent->SetupAttachment(SphereComponent);
 
 	SphereComponent->BodyInstance.SetCollisionProfileName(TEXT("BonusItem"));
-
 }
 
 // Called when the game starts or when spawned
@@ -50,11 +49,11 @@ void AArmorItem::NotifyActorBeginOverlap(AActor* OtherActor)
 {
 	Super::NotifyActorBeginOverlap(OtherActor);
 
-	
 	if (AMainCharacter* Player = Cast<AMainCharacter>(OtherActor); Player != nullptr)
 	{
 		Player->MakeInvincibleFor(InvincibilityDuration);
+		Player->ShowPickupMessage(FText::FromString(FString::Printf(TEXT("BULLETPROOF FOR %d S"), FMath::RoundToInt(InvincibilityDuration))),
+			FLinearColor(0.45f, 0.85f, 1.f), 3.5f);
 		Destroy();
 	}
 }
-

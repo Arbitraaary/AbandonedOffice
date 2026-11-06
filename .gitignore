@@ -36,3 +36,5 @@
 # ADD AS NEED BE
 
 .idea
+# backup copies of edited sources
+*.bak_before_physics

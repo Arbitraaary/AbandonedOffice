@@ -13,6 +13,9 @@ class ABaseWeapon;
 class UCameraComponent;
 class UInputMappingContext;
 class UInputAction;
+class UPhysicsHandleComponent;
+class AGrabbableProp;
+class FPickupMessageOverlay;
 
 UCLASS()
 class UNIVERSITYGAME_API AMainCharacter : public ACharacter
@@ -26,6 +29,8 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 	UPROPERTY()
 	AActivePlayerController* PlayerController;
@@ -121,6 +126,49 @@ protected:
 
 	void OnInvincibilityFinished();
 
+	// PHYSICS INTERACTION BEGIN
+	// E on a box / bin / cone picks it up (physics handle), E again puts it down, fire throws it
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Physics)
+	UPhysicsHandleComponent* PhysicsHandle;
+
+	UPROPERTY()
+	AGrabbableProp* HeldProp = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Physics)
+	float GrabDistance = 250.f;
+
+	// where a carried prop is held, relative to the camera: X forward, Y right, Z up (cm, pitch ignored) -
+	// a bit to the left, low and close, as if carried under the arm
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Physics)
+	FVector HoldOffset = FVector(70.f, -38.f, -55.f);
+
+	// yaw of the prop relative to the view when it was picked up (it keeps that while carried)
+	float HeldYawOffset = 0.f;
+
+	// loose papers within this radius of the feet get blown along when walking
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Physics)
+	float PaperKickRadius = 75.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Physics)
+	float PaperKickMinSpeed = 60.f;
+
+	bool TryGrabProp();
+
+	void ReleaseProp(bool bThrow);
+
+	void UpdateHeldProp();
+
+	void KickLoosePapers();
+
+	TSharedPtr<FPickupMessageOverlay> PickupMessages;
+
+	// one handle for the bulletproof timer: picking up another vest restarts it instead of the old timer ending it early
+	FTimerHandle InvincibilityTimerHandle;
+
+	float LastPickTime = -100.f;
+	float FireBlockedUntil = -100.f;
+	// PHYSICS INTERACTION END
+
 private:
 	UPROPERTY(EditAnywhere, Category = Health)
 	float Health;
@@ -142,9 +190,14 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 	
-	void Heal(float AdditionalHealth);
+	// returns how much health was actually restored (0 = already full)
+	float Heal(float AdditionalHealth);
 
-	void GetAmmo(int AdditionalAmmo);
+	// returns how many rounds were actually added (0 = reserve already full)
+	int GetAmmo(int AdditionalAmmo);
+
+	// short text under the crosshair: "+15 HEALTH", "+15 AMMO", "BULLETPROOF FOR 15 S" ...
+	void ShowPickupMessage(const FText& Text, const FLinearColor& Color, float Seconds = 2.5f);
 
 	void MakeInvincibleFor(float Seconds);
 

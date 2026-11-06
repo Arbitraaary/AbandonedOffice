@@ -12,7 +12,7 @@ AHealthItem::AHealthItem()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	
+
 	if (SphereComponent == nullptr)
 	{
 		SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
@@ -26,7 +26,6 @@ AHealthItem::AHealthItem()
 	StaticMeshComponent->SetupAttachment(SphereComponent);
 
 	SphereComponent->BodyInstance.SetCollisionProfileName(TEXT("BonusItem"));
-
 }
 
 // Called when the game starts or when spawned
@@ -52,8 +51,17 @@ void AHealthItem::NotifyActorBeginOverlap(AActor* OtherActor)
 
 	if (AMainCharacter* Player = Cast<AMainCharacter>(OtherActor); Player != nullptr)
 	{
-		Player->Heal(HealthRecoveryAmount);
-		Destroy();
+		const float Healed = Player->Heal(HealthRecoveryAmount);
+		if (Healed > 0.f)
+		{
+			Player->ShowPickupMessage(FText::FromString(FString::Printf(TEXT("+%d HEALTH"), FMath::RoundToInt(Healed))),
+				FLinearColor(0.35f, 1.f, 0.4f));
+			Destroy();
+		}
+		else
+		{
+			// health already full: the medkit stays where it is
+			Player->ShowPickupMessage(FText::FromString(TEXT("HEALTH IS FULL")), FLinearColor(0.75f, 0.75f, 0.75f), 1.5f);
+		}
 	}
 }
-

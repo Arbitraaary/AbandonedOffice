@@ -11,6 +11,13 @@
 #include "GameFramework/PawnMovementComponent.h"
 #include "ProfilingDebugging/CookStats.h"
 #include "UniversityGame/Weapons/BaseWeapon.h"
+#include "UniversityGame/Environment/Physics/GrabbableProp.h"
+#include "UniversityGame/Environment/Physics/LoosePaper.h"
+#include "Components/CapsuleComponent.h"
+#include "Engine/OverlapResult.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"
+#include "UniversityGame/HUD/PickupMessageOverlay.h"
 
 // Sets default values
 AMainCharacter::AMainCharacter()
@@ -30,6 +37,21 @@ AMainCharacter::AMainCharacter()
 	{
 		ACharacter::GetMovementComponent()->GetNavAgentPropertiesRef().bCanCrouch = true;
 	}
+
+	// Physics interaction: walking into a physics prop pushes it, E grabs it
+	if (UCharacterMovementComponent* CharacterMovementComponent = GetCharacterMovement())
+	{
+		CharacterMovementComponent->bEnablePhysicsInteraction = true;
+		CharacterMovementComponent->PushForceFactor = 150000.f;
+		CharacterMovementComponent->InitialPushForceFactor = 200.f;
+		CharacterMovementComponent->bScalePushForceToVelocity = true;
+	}
+	PhysicsHandle = CreateDefaultSubobject<UPhysicsHandleComponent>(TEXT("PhysicsHandle"));
+	PhysicsHandle->LinearStiffness = 1500.f;
+	PhysicsHandle->LinearDamping = 120.f;
+	PhysicsHandle->AngularStiffness = 1000.f;
+	PhysicsHandle->AngularDamping = 300.f;
+	PhysicsHandle->InterpolationSpeed = 25.f;
 
 	Health = MaxHealth;
 }
@@ -113,6 +135,15 @@ void AMainCharacter::Scope(const FInputActionValue& Value)
 
 void AMainCharacter::Fire(const FInputActionValue& Value)
 {
+	// carrying a prop: the fire button throws it instead of shooting
+	if (HeldProp != nullptr)
+	{
+		ReleaseProp(true);
+		FireBlockedUntil = GetWorld()->GetTimeSeconds() + 0.4f;
+		return;
+	}
+	if (GetWorld()->GetTimeSeconds() < FireBlockedUntil) return;
+
 	if (WeaponClass == nullptr) return;
 	if (!CanShoot) return;
 
@@ -174,7 +205,22 @@ void AMainCharacter::Reload(const FInputActionValue& Value)
 
 void AMainCharacter::Pick(const FInputActionValue& Value)
 {
-	
+	// E fires every frame while held - react once per press
+	const float Now = GetWorld()->GetTimeSeconds();
+	if (Now - LastPickTime < 0.3f)
+	{
+		LastPickTime = Now;
+		return;
+	}
+	LastPickTime = Now;
+
+	// already carrying something -> put it down
+	if (HeldProp != nullptr)
+	{
+		ReleaseProp(false);
+		return;
+	}
+
 	const FVector CameraLocation = CameraComponent->GetComponentLocation();
 	const FVector CameraDirection = CameraComponent->GetForwardVector();
 	
@@ -207,8 +253,99 @@ void AMainCharacter::Pick(const FInputActionValue& Value)
 		}
 		AcquireWeapon(HitWeapon->GetClass(), HitWeapon);
 		HitWeapon->Destroy();
+		return;
 	}
-	
+
+	// no weapon in front of us -> try to pick up a physics prop (box, bin, cone)
+	TryGrabProp();
+}
+
+bool AMainCharacter::TryGrabProp()
+{
+	const FVector Start = CameraComponent->GetComponentLocation();
+	const FVector End = Start + CameraComponent->GetForwardVector() * GrabDistance;
+
+	FCollisionQueryParams Params(FName(TEXT("GrabTrace")), false, this);
+	if (Weapon != nullptr)
+	{
+		Params.AddIgnoredActor(Weapon);
+	}
+
+	FHitResult Hit;
+	if (!GetWorld()->SweepSingleByChannel(Hit, Start, End, FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(12.f), Params))
+	{
+		return false;
+	}
+
+	AGrabbableProp* Prop = Cast<AGrabbableProp>(Hit.GetActor());
+	if (Prop == nullptr) return false;
+
+	UPrimitiveComponent* PropComponent = Prop->GetMesh();
+	Prop->OnGrabbed();
+	PhysicsHandle->GrabComponentAtLocationWithRotation(PropComponent, NAME_None, PropComponent->GetCenterOfMass(), PropComponent->GetComponentRotation());
+	HeldYawOffset = FRotator::NormalizeAxis(PropComponent->GetComponentRotation().Yaw - GetControlRotation().Yaw);
+	HeldProp = Prop;
+	return true;
+}
+
+void AMainCharacter::ReleaseProp(const bool bThrow)
+{
+	if (HeldProp == nullptr) return;
+
+	PhysicsHandle->ReleaseComponent();
+	HeldProp->OnReleased();
+	if (bThrow)
+	{
+		HeldProp->GetMesh()->AddImpulse(CameraComponent->GetForwardVector() * HeldProp->ThrowSpeed + GetVelocity(), NAME_None, true);
+	}
+	HeldProp = nullptr;
+}
+
+void AMainCharacter::UpdateHeldProp()
+{
+	if (HeldProp == nullptr) return;
+	if (!IsValid(HeldProp))
+	{
+		HeldProp = nullptr;
+		return;
+	}
+
+	// under the arm: offset from the camera along the horizontal view direction, so looking up / down doesn't swing it
+	const FRotator YawOnly(0.f, GetControlRotation().Yaw, 0.f);
+	const FVector Target = CameraComponent->GetComponentLocation() + YawOnly.RotateVector(HoldOffset);
+	PhysicsHandle->SetTargetLocationAndRotation(Target, FRotator(0.f, YawOnly.Yaw + HeldYawOffset, 0.f));
+
+	// stuck behind a wall / desk -> let it go
+	if (FVector::Dist(HeldProp->GetActorLocation(), Target) > GrabDistance)
+	{
+		ReleaseProp(false);
+	}
+}
+
+void AMainCharacter::KickLoosePapers()
+{
+	const FVector Velocity = GetVelocity();
+	const float Speed2D = Velocity.Size2D();
+	if (Speed2D < PaperKickMinSpeed) return;
+
+	const FVector Feet = GetActorLocation() - FVector(0.f, 0.f, GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
+
+	TArray<FOverlapResult> Overlaps;
+	const FCollisionObjectQueryParams ObjectParams(FCollisionObjectQueryParams::AllDynamicObjects);
+	const FCollisionQueryParams Params(FName(TEXT("PaperKick")), false, this);
+	GetWorld()->OverlapMultiByObjectType(Overlaps, Feet + FVector(0.f, 0.f, 15.f), FQuat::Identity, ObjectParams,
+		FCollisionShape::MakeSphere(PaperKickRadius), Params);
+
+	const float SpeedFactor = FMath::Clamp(Speed2D / 600.f, 0.25f, 1.f);
+	for (const FOverlapResult& Overlap : Overlaps)
+	{
+		if (ALoosePaper* Paper = Cast<ALoosePaper>(Overlap.GetActor()))
+		{
+			const float Distance = FVector::Dist2D(Paper->GetActorLocation(), Feet);
+			const float Closeness = 1.f - FMath::Clamp(Distance / PaperKickRadius, 0.f, 1.f);
+			Paper->BlowAway(Velocity, SpeedFactor * (0.35f + 0.65f * Closeness));
+		}
+	}
 }
 
 void AMainCharacter::DropWeapon()
@@ -270,6 +407,8 @@ void AMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	UpdateHeldProp();
+	KickLoosePapers();
 }
 
 // Called to bind functionality to input
@@ -318,19 +457,51 @@ float AMainCharacter::ChangeHealth(const float NewHealth)
 	return Health;
 }
 
-void AMainCharacter::GetAmmo(const int AdditionalAmmo)
+int AMainCharacter::GetAmmo(const int AdditionalAmmo)
 {
+	if (Weapon == nullptr) return 0;
+
+	const int Before = Weapon->GetUnequippedAmmoCount();
 	Weapon->AddAmmo(AdditionalAmmo);
-	
+	const int Added = Weapon->GetUnequippedAmmoCount() - Before;
+
 	PlayerController->UpdateAmmoInMagCount(Weapon->GetMagazineAmmoCount());
 	PlayerController->UpdateUnequippedAmmoCount(Weapon->GetUnequippedAmmoCount());
+	return Added;
+}
+
+void AMainCharacter::ShowPickupMessage(const FText& Text, const FLinearColor& Color, const float Seconds)
+{
+	if (!IsLocallyControlled()) return;
+	if (!PickupMessages.IsValid())
+	{
+		PickupMessages = MakeShared<FPickupMessageOverlay>();
+	}
+	PickupMessages->Show(GetWorld(), Text, Color, Seconds);
+}
+
+void AMainCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	if (PickupMessages.IsValid())
+	{
+		PickupMessages->Detach();
+		PickupMessages.Reset();
+	}
+	Super::EndPlay(EndPlayReason);
 }
 
 void AMainCharacter::MakeInvincibleFor(float Seconds)
 {
-	
-	FTimerHandle InvincibilityTimerHandle;
 	bIsInvincible = true;
+	if (IsLocallyControlled())
+	{
+		if (!PickupMessages.IsValid())
+		{
+			PickupMessages = MakeShared<FPickupMessageOverlay>();
+		}
+		PickupMessages->ShowCountdown(GetWorld(), TEXT("BULLETPROOF"), FLinearColor(0.45f, 0.85f, 1.f),
+			GetWorld()->GetTimeSeconds() + Seconds);
+	}
 	GetWorld()->GetTimerManager().SetTimer(
 		InvincibilityTimerHandle,
 		this,
@@ -344,12 +515,14 @@ void AMainCharacter::OnInvincibilityFinished()
 	bIsInvincible = false;
 }
 
-void AMainCharacter::Heal(const float AdditionalHealth)
+float AMainCharacter::Heal(const float AdditionalHealth)
 {
+	const float Before = Health;
 	if (Health < MaxHealth && AdditionalHealth > 0)
 	{
 		ChangeHealth(Health + AdditionalHealth);
 	}
+	return Health - Before;
 }
 
 void AMainCharacter::TeleportToLocation(FVector Location)

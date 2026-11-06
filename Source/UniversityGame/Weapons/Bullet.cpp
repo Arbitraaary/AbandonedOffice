@@ -27,8 +27,8 @@ ABullet::ABullet()
 	// Movement
 	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovementComponent"));
 	ProjectileMovementComponent->SetUpdatedComponent(RootComponent);
-	ProjectileMovementComponent->InitialSpeed = 3000.f;
-	ProjectileMovementComponent->MaxSpeed = 3000.f;
+	ProjectileMovementComponent->InitialSpeed = 45000.f;
+	ProjectileMovementComponent->MaxSpeed = 45000.f;
 	ProjectileMovementComponent->bRotationFollowsVelocity = true;
 	ProjectileMovementComponent->bShouldBounce = true;
 	ProjectileMovementComponent->Bounciness = 0.3f;
@@ -63,19 +63,24 @@ void ABullet::OnFired(const FVector& Direction) const
 void ABullet::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp,
 	bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
 {
+	
+	if (!Other || Other == GetInstigator() || Other == GetOwner() || Other == this)
+	{
+		return;
+	}
 	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
 
 	if (OtherComp->GetCollisionObjectType() == ECC_WorldStatic)
 	{
 		const UDecalComponent* Decal = UGameplayStatics::SpawnDecalAttached(
 			DecalMaterial,
-			FVector(2.f, 2.f, 2.f),
+			FVector(8.f, 8.f, 8.f),
 			OtherComp,
 			NAME_None,
 			HitLocation,
 			HitNormal.Rotation(),
 			EAttachLocation::KeepWorldPosition,
-			10.f
+			30.f
 		);
 		UE_LOG(LogTemp, Warning, TEXT("Hit WorldStatic: %s"), *(Other->GetName()));
 	}
