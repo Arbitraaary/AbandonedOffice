@@ -8,6 +8,9 @@
 #include "ActivePlayerController.generated.h"
 
 class UPlayerAmmoWidget;
+class FGameOverOverlay;
+class FDamageFlashOverlay;
+class UHitCameraModifier;
 class UPlayerHealthbarWidget;
 class UInputMappingContext;
 /**
@@ -40,8 +43,25 @@ protected:
 	UPROPERTY()
 	UPlayerAmmoWidget* PlayerAmmoWidget;
 
+	TSharedPtr<FGameOverOverlay> GameOverOverlay;
+
+	TSharedPtr<FDamageFlashOverlay> DamageFlashOverlay;
+
+	UPROPERTY()
+	UHitCameraModifier* HitCameraModifier;
+
 public:
 	virtual void SetupInputComponent() override;
+
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+
+	// pauses the game (enemies stop shooting) and shows the GAME OVER screen with RESTART / QUIT
+	void ShowGameOver(const FText& Reason);
+
+	bool IsGameOver() const;
+
+	// the player was hit: camera jolt away from the shot + red tint over the screen
+	void PlayHitReaction(const FVector& FromLocation, float Damage);
 
 	virtual void BeginPlay() override;
 	

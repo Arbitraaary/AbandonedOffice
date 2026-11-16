@@ -187,6 +187,12 @@ void AMainCharacter::Fire(const FInputActionValue& Value)
 
 	PlayerController->UpdateUnequippedAmmoCount(Weapon->GetUnequippedAmmoCount());
 	PlayerController->UpdateAmmoInMagCount(Weapon->GetMagazineAmmoCount());
+
+	// no bullets left at all -> game over
+	if (Weapon->GetMagazineAmmoCount() <= 0 && Weapon->GetUnequippedAmmoCount() <= 0)
+	{
+		PlayerController->ShowGameOver(FText::FromString(TEXT("You are out of ammo")));
+	}
 }
 
 void AMainCharacter::Reload(const FInputActionValue& Value)
@@ -436,9 +442,28 @@ float AMainCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageE
 	if (!bIsInvincible)
 	{
 		ChangeHealth(Health - DamageAmount);
+
+		if (PlayerController && DamageAmount > 0.f)
+		{
+			// where the shot came from: back along the bullet's flight, else the shooter, else the bullet itself
+			FVector From = GetActorLocation() + GetActorForwardVector() * 100.f;
+			if (DamageCauser && !DamageCauser->GetVelocity().IsNearlyZero())
+			{
+				From = DamageCauser->GetActorLocation() - DamageCauser->GetVelocity().GetSafeNormal() * 500.f;
+			}
+			else if (EventInstigator && EventInstigator->GetPawn())
+			{
+				From = EventInstigator->GetPawn()->GetActorLocation();
+			}
+			else if (DamageCauser)
+			{
+				From = DamageCauser->GetActorLocation();
+			}
+			PlayerController->PlayHitReaction(From, DamageAmount);
+		}
 	}
 	
-	UE_LOG(LogTemp, Warning, TEXT("%s has %f amount of health left. Instigator controller: %s"), *GetName(), Health, *(EventInstigator->GetName()));
+	UE_LOG(LogTemp, Warning, TEXT("%s has %f amount of health left. Instigator controller: %s"), *GetName(), Health, *GetNameSafe(EventInstigator));
 
 	if (CanPlayShotAnim)
 	{
@@ -454,6 +479,10 @@ float AMainCharacter::ChangeHealth(const float NewHealth)
 	Health = FMath::Clamp(NewHealth, 0, MaxHealth);
 	
 	PlayerController->UpdateHealthPercentage(Health/MaxHealth);
+	if (Health <= 0.f)
+	{
+		PlayerController->ShowGameOver(FText::FromString(TEXT("You have no health left")));
+	}
 	return Health;
 }
 

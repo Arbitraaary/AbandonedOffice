@@ -49,6 +49,11 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Properties")
 	FName Socket;
+
+	// socket at the end of the barrel where bullets appear; if empty or missing on the mesh,
+	// "b_gun_muzzle_flash_socket" is used as before (the guard's AR4 uses "Muzzle")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Properties")
+	FName MuzzleSocketName;
 	
 	bool bCanFire = true;
 

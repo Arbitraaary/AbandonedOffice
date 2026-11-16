@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "GenericTeamAgentInterface.h"
+#include "UniversityGame/Core/PlayersTeam.h"
 #include "EnhancedInputComponent.h"
 #include "Controllers/ActivePlayerController.h"
 #include "UniversityGame/Weapons/Bullet.h"
@@ -18,7 +20,7 @@ class AGrabbableProp;
 class FPickupMessageOverlay;
 
 UCLASS()
-class UNIVERSITYGAME_API AMainCharacter : public ACharacter
+class UNIVERSITYGAME_API AMainCharacter : public ACharacter, public IGenericTeamAgentInterface
 {
 	GENERATED_BODY()
 
@@ -183,7 +185,10 @@ private:
 
 	float ChangeHealth(float NewHealth);
 	
-public:	
+public:
+	// the player belongs to PlayersTeam - AI controllers treat this team as hostile
+	virtual FGenericTeamId GetGenericTeamId() const override { return FPlayersTeam(); }
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

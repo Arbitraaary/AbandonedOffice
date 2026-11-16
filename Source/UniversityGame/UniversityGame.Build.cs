@@ -17,7 +17,10 @@ public class UniversityGame : ModuleRules
 			"EnhancedInput", 
 			"UMG",
 			"Slate",
-			"SlateCore"
+			"SlateCore",
+			"AIModule",
+			"GameplayTasks",
+			"NavigationSystem"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });

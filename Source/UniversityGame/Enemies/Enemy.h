@@ -50,6 +50,14 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = Weapon)
 	bool CanShoot = true;
 
+	// socket on the skeletal mesh the weapon is attached to
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = Weapon)
+	FName WeaponSocketName = TEXT("hand_r_venra_socket");
+
+	// soldiers fire every tick; AI-driven enemies (the office zombie) fire from their behavior tree instead
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = Weapon)
+	bool bAutoFire = true;
+
 	UPROPERTY()
 	ABaseWeapon* Weapon;
 	
@@ -87,6 +95,13 @@ protected:
 	// HUD START
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=HUD)
 	UWidgetComponent* HealthBarWidgetComponent;
+
+	// the bar's bottom edge sits this far above the head bone (cm, scaled with the actor) - just over the top of the head
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=HUD)
+	float BarAboveHead = 24.f;
+
+	// pins the bar above the head and hides it when a wall is between the camera and the enemy
+	void UpdateHealthBar();
 	// HUD END
 
 	void DropWeapon();

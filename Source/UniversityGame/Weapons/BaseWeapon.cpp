@@ -40,6 +40,10 @@ FVector ABaseWeapon::GetMuzzleLocation() const
 {
 	if (SkeletalMeshComponent != nullptr)
 	{
+		if (!MuzzleSocketName.IsNone() && SkeletalMeshComponent->DoesSocketExist(MuzzleSocketName))
+		{
+			return SkeletalMeshComponent->GetSocketLocation(MuzzleSocketName);
+		}
 		return SkeletalMeshComponent->GetSocketLocation(TEXT("b_gun_muzzle_flash_socket"));
 	}
 	return GetActorLocation();
