@@ -1,6 +1,7 @@
 #include "SecurityGuard.h"
 
 #include "EngineUtils.h"
+#include "Kismet/GameplayStatics.h"
 #include "GuardHealthBarWidget.h"
 #include "NavigationSystem.h"
 #include "AI/SecurityGuardAIController.h"
@@ -8,6 +9,7 @@
 #include "Animation/AnimMontage.h"
 #include "Animation/AnimSequenceBase.h"
 #include "BrainComponent.h"
+#include "BehaviorTree/BlackboardComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "Components/WidgetComponent.h"
@@ -110,6 +112,7 @@ void ASecurityGuard::Tick(float DeltaTime)
 	if (!IsDying)
 	{
 		WatchIncomingBullets();
+		UpdateWeaponPose(DeltaTime);
 
 		// smoke: blind and slow while inside
 		const bool bNowInSmoke = ASmokeZone::IsActorInSmoke(this);
@@ -141,6 +144,18 @@ void ASecurityGuard::KeepBodyOutOfWalls()
 	UWorld* World = GetWorld();
 	FCollisionQueryParams Params(SCENE_QUERY_STAT(GuardBody), false, this);
 	if (Weapon) Params.AddIgnoredActor(Weapon);
+	if (!bBodyPushIgnoredReady)
+	{
+		// moving things like the sliding glass door are not walls: the body must not be lifted onto them
+		TArray<AActor*> Found;
+		UGameplayStatics::GetAllActorsWithTag(this, FName("NoBodyPush"), Found);
+		BodyPushIgnored.Append(Found);
+		bBodyPushIgnoredReady = true;
+	}
+	for (AActor* A : BodyPushIgnored)
+	{
+		if (A) Params.AddIgnoredActor(A);
+	}
 	FCollisionObjectQueryParams Solid;
 	Solid.AddObjectTypesToQuery(ECC_WorldStatic);
 	Solid.AddObjectTypesToQuery(ECC_WorldDynamic);
@@ -588,6 +603,9 @@ UAnimMontage* ASecurityGuard::PlayAnim(UAnimSequenceBase* Anim, const float Rate
 
 float ASecurityGuard::PlayLookAroundIdle()
 {
+	// rifle lowered: no rifle-in-both-hands idle (it would override the relaxed pose through the slot) -
+	// he just stands relaxed for a moment while the task turns him to look around
+	if (WeaponRaiseAlpha < 0.5f) return 2.f;
 	if (LookAroundIdles.Num() == 0) return 0.f;
 	const UAnimMontage* M = PlayAnim(LookAroundIdles[FMath::RandRange(0, LookAroundIdles.Num() - 1)], 1.f, 0.25f, 0.3f);
 	return M ? M->GetPlayLength() : 0.f;
@@ -603,5 +621,46 @@ void ASecurityGuard::AlertController(AActor* Threat) const
 	if (ASecurityGuardAIController* AI = Cast<ASecurityGuardAIController>(GetController()))
 	{
 		AI->ReportThreat(Threat);
+	}
+}
+
+// ==================================================================== weapon pose
+void ASecurityGuard::UpdateWeaponPose(const float DeltaTime)
+{
+	// raise the rifle while the player is seen and within shooting range, lower it otherwise
+	const AAIController* AI = Cast<AAIController>(GetController());
+	const UBlackboardComponent* BB = AI ? AI->GetBlackboardComponent() : nullptr;
+	const AActor* Target = BB ? Cast<AActor>(BB->GetValueAsObject(GuardKeys::TargetActor)) : nullptr;
+	const bool bWantRaised = Target && !bStunned &&
+		BB->GetValueAsBool(GuardKeys::CanSeeTarget) && BB->GetValueAsBool(GuardKeys::InAttackRange);
+
+	bWantedRaised = bWantRaised;
+
+	const float Step = DeltaTime / FMath::Max(bWantRaised ? RaiseTime : LowerTime, 0.05f);
+	WeaponRaiseAlpha = FMath::Clamp(WeaponRaiseAlpha + (bWantRaised ? Step : -Step), 0.f, 1.f);
+	bWeaponRaised = bWantRaised || WeaponRaiseAlpha > 0.f;
+
+	// raised: the rifle follows the player up and down; the smooth-step makes the raise start and stop softly
+	float AimPitch = 0.f;
+	if (Target)
+	{
+		const FVector Eye = GetActorLocation() + FVector(0.f, 0.f, BaseEyeHeight * GetActorScale3D().Z);
+		const FVector ToTarget = Target->GetActorLocation() - Eye;
+		AimPitch = FMath::Clamp(FMath::RadiansToDegrees(FMath::Atan2(ToTarget.Z, ToTarget.Size2D())), -45.f, 45.f);
+	}
+	const float Blend = FMath::SmoothStep(0.f, 1.f, WeaponRaiseAlpha);
+	WeaponLoweredWeight = 1.f - Blend;                 // upper body: lowered pose -> combat pose
+	WeaponAimPitch = AimPitch * Blend;                 // aims only once the rifle is up
+
+	// debug line (off by default, Guard|Weapon -> Show Weapon Debug)
+	if (bShowWeaponDebug && GEngine)
+	{
+		const UAnimInstance* Anim = GetMesh() ? GetMesh()->GetAnimInstance() : nullptr;
+		const UAnimMontage* Montage = Anim ? Anim->GetCurrentActiveMontage() : nullptr;
+		GEngine->AddOnScreenDebugMessage(static_cast<uint64>(GetUniqueID()), 0.f, FColor::Yellow,
+			FString::Printf(TEXT("%s  Sees:%d InRange:%d Target:%d  Lowered:%.2f  Montage:%s"), *GetName(),
+			                BB ? BB->GetValueAsBool(GuardKeys::CanSeeTarget) : -1,
+			                BB ? BB->GetValueAsBool(GuardKeys::InAttackRange) : -1, Target != nullptr,
+			                WeaponLoweredWeight, Montage ? *Montage->GetName() : TEXT("-")));
 	}
 }

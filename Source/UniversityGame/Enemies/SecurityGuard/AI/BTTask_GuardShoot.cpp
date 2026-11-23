@@ -46,7 +46,8 @@ void UBTTask_GuardShoot::TickTask(UBehaviorTreeComponent& OwnerComp, uint8* Node
 		return;
 	}
 	AI->StopMovement();
-	if (Now >= NextShot && !Guard->IsBusy())
+	// the rifle has to be up first (it is raised when the player comes into range)
+	if (Now >= NextShot && !Guard->IsBusy() && Guard->IsWeaponReady())
 	{
 		// only shoot when he is roughly facing the player (turning is smooth, so wait for it)
 		const FVector ToTarget = (Target->GetActorLocation() - Guard->GetActorLocation()).GetSafeNormal2D();

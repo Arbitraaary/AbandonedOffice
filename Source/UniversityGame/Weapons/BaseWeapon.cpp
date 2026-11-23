@@ -5,6 +5,8 @@
 
 #include "Bullet.h"
 #include "Components/BoxComponent.h"
+#include "Components/StaticMeshComponent.h"
+#include "Engine/StaticMesh.h"
 #include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
@@ -198,4 +200,77 @@ void ABaseWeapon::AddAmmo(const int AmmoCount)
 FName ABaseWeapon::GetSocketName() const
 {
 	return Socket;
+}
+
+int ABaseWeapon::ReloadRounds(const int MaxRounds)
+{
+	const int Space = MagazineAmmoCapacity - MagazineAmmoCount;
+	const int Moved = bInfiniteAmmo ? FMath::Min(MaxRounds, Space)
+	                                : FMath::Min3(MaxRounds, Space, UnequippedAmmoCount);
+	if (Moved <= 0) return 0;
+	MagazineAmmoCount += Moved;
+	if (!bInfiniteAmmo)
+	{
+		UnequippedAmmoCount -= Moved;
+	}
+	return Moved;
+}
+
+UStaticMesh* ABaseWeapon::FindMagazineMesh()
+{
+	if (MagazineMesh || !SkeletalMeshComponent || !SkeletalMeshComponent->GetSkeletalMeshAsset()) return MagazineMesh;
+
+	// FPS Weapon Bundle naming: /Meshes/KA47/SK_KA47_X -> /Meshes/KA47/SM_KA47_Mag (or SM_<name>_Mag_X ...)
+	const FString MeshPath = SkeletalMeshComponent->GetSkeletalMeshAsset()->GetPathName();
+	const FString Folder = FPaths::GetPath(MeshPath);
+	FString Base = FPaths::GetBaseFilename(MeshPath);
+	Base.RemoveFromStart(TEXT("SK_"));
+	Base.RemoveFromEnd(TEXT("_Physics"));
+	Base.RemoveFromEnd(TEXT("_X"));
+	Base.RemoveFromEnd(TEXT("_Y"));
+	for (const TCHAR* Suffix : {TEXT("_Mag_X"), TEXT("_Mag"), TEXT("_Mag_Loaded_X"), TEXT("_Mag_Y")})
+	{
+		const FString Name = TEXT("SM_") + Base + Suffix;
+		if (UStaticMesh* Found = Cast<UStaticMesh>(FSoftObjectPath(Folder + TEXT("/") + Name + TEXT(".") + Name).TryLoad()))
+		{
+			MagazineMesh = Found;
+			break;
+		}
+	}
+	return MagazineMesh;
+}
+
+void ABaseWeapon::MagazineOut(USkeletalMeshComponent* HandMesh)
+{
+	if (!SkeletalMeshComponent || HandMagazine) return;
+	const bool bHasBone = SkeletalMeshComponent->GetBoneIndex(MagazineBoneName) != INDEX_NONE;
+	if (!bHasBone) return;
+
+	// the magazine leaves the weapon ...
+	const FTransform MagTransform = SkeletalMeshComponent->GetSocketTransform(MagazineBoneName);
+	SkeletalMeshComponent->HideBoneByName(MagazineBoneName, PBO_None);
+
+	// ... and the same magazine model goes on with the hand, from exactly where it was on the weapon
+	UStaticMesh* Mesh = FindMagazineMesh();
+	if (!Mesh || !HandMesh) return;
+	HandMagazine = NewObject<UStaticMeshComponent>(this);
+	HandMagazine->SetStaticMesh(Mesh);
+	HandMagazine->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	HandMagazine->SetCastShadow(true);
+	HandMagazine->RegisterComponent();
+	HandMagazine->SetWorldTransform(MagTransform);
+	HandMagazine->AttachToComponent(HandMesh, FAttachmentTransformRules::KeepWorldTransform, MagazineHandBone);
+}
+
+void ABaseWeapon::MagazineIn()
+{
+	if (HandMagazine)
+	{
+		HandMagazine->DestroyComponent();
+		HandMagazine = nullptr;
+	}
+	if (SkeletalMeshComponent && SkeletalMeshComponent->GetBoneIndex(MagazineBoneName) != INDEX_NONE)
+	{
+		SkeletalMeshComponent->UnHideBoneByName(MagazineBoneName);
+	}
 }

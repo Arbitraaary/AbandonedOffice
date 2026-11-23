@@ -1,0 +1,5526 @@
+[
+{
+"label": "LightmassPortal1",
+"class": "LightmassPortal",
+"mesh": "",
+"folder": "None",
+"loc": [
+-660,
+1660,
+154
+],
+"yaw": 90.0,
+"bmin": [
+-857,
+1532,
+8
+],
+"bmax": [
+-463,
+1788,
+299
+]
+},
+{
+"label": "LightmassPortal2",
+"class": "LightmassPortal",
+"mesh": "",
+"folder": "None",
+"loc": [
+-160,
+1660,
+154
+],
+"yaw": 90.0,
+"bmin": [
+-357,
+1532,
+8
+],
+"bmax": [
+37,
+1788,
+299
+]
+},
+{
+"label": "LightmassPortal3",
+"class": "LightmassPortal",
+"mesh": "",
+"folder": "None",
+"loc": [
+-660,
+1660,
+554
+],
+"yaw": 90.0,
+"bmin": [
+-857,
+1532,
+408
+],
+"bmax": [
+-463,
+1788,
+699
+]
+},
+{
+"label": "LightmassPortal4",
+"class": "LightmassPortal",
+"mesh": "",
+"folder": "None",
+"loc": [
+-160,
+1660,
+554
+],
+"yaw": 90.0,
+"bmin": [
+-357,
+1532,
+408
+],
+"bmax": [
+37,
+1788,
+699
+]
+},
+{
+"label": "LightmassPortal5",
+"class": "LightmassPortal",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2160,
+1660,
+154
+],
+"yaw": 90.0,
+"bmin": [
+-2357,
+1532,
+8
+],
+"bmax": [
+-1963,
+1788,
+299
+]
+},
+{
+"label": "LightmassPortal6",
+"class": "LightmassPortal",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1660,
+1660,
+154
+],
+"yaw": 90.0,
+"bmin": [
+-1857,
+1532,
+8
+],
+"bmax": [
+-1463,
+1788,
+299
+]
+},
+{
+"label": "LightmassPortal7",
+"class": "LightmassPortal",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2160,
+1660,
+554
+],
+"yaw": 90.0,
+"bmin": [
+-2357,
+1532,
+408
+],
+"bmax": [
+-1963,
+1788,
+699
+]
+},
+{
+"label": "LightmassPortal8",
+"class": "LightmassPortal",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1660,
+1660,
+554
+],
+"yaw": 90.0,
+"bmin": [
+-1857,
+1532,
+408
+],
+"bmax": [
+-1463,
+1788,
+699
+]
+},
+{
+"label": "LightmassPortal9",
+"class": "LightmassPortal",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1160,
+1660,
+554
+],
+"yaw": 90.0,
+"bmin": [
+-1357,
+1532,
+408
+],
+"bmax": [
+-963,
+1788,
+699
+]
+},
+{
+"label": "LightmassPortal10",
+"class": "LightmassPortal",
+"mesh": "",
+"folder": "None",
+"loc": [
+302,
+1203,
+154
+],
+"yaw": -180.0,
+"bmin": [
+174,
+1005,
+8
+],
+"bmax": [
+430,
+1400,
+299
+]
+},
+{
+"label": "LightmassPortal11",
+"class": "LightmassPortal",
+"mesh": "",
+"folder": "None",
+"loc": [
+302,
+703,
+154
+],
+"yaw": -180.0,
+"bmin": [
+174,
+505,
+8
+],
+"bmax": [
+430,
+900,
+299
+]
+},
+{
+"label": "LightmassPortal12",
+"class": "LightmassPortal",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2615,
+1203,
+154
+],
+"yaw": -180.0,
+"bmin": [
+-2743,
+1005,
+8
+],
+"bmax": [
+-2487,
+1400,
+299
+]
+},
+{
+"label": "LightmassPortal13",
+"class": "LightmassPortal",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2615,
+703,
+154
+],
+"yaw": -180.0,
+"bmin": [
+-2743,
+505,
+8
+],
+"bmax": [
+-2487,
+900,
+299
+]
+},
+{
+"label": "LightmassImportanceVolume",
+"class": "LightmassImportanceVolume",
+"mesh": "",
+"folder": "Lighting",
+"loc": [
+0,
+81,
+1625
+],
+"yaw": 0.0,
+"bmin": [
+-2981,
+-2036,
+185
+],
+"bmax": [
+1211,
+2257,
+1147
+]
+},
+{
+"label": "Light Source",
+"class": "DirectionalLight",
+"mesh": "",
+"folder": "Lighting",
+"loc": [
+648,
+-119,
+570
+],
+"yaw": -116.4,
+"bmin": [
+251,
+-624,
+-84
+],
+"bmax": [
+894,
+81,
+730
+],
+"intensity": 3.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "SkyLight",
+"class": "SkyLight",
+"mesh": "",
+"folder": "Lighting",
+"loc": [
+30,
+89,
+90
+],
+"yaw": 0.0,
+"bmin": [
+-226,
+-167,
+-166
+],
+"bmax": [
+286,
+345,
+346
+]
+},
+{
+"label": "RectLight",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1150,
+950,
+376
+],
+"yaw": 0.0,
+"bmin": [
+-1278,
+822,
+248
+],
+"bmax": [
+-1022,
+1078,
+504
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "RectLight2",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2248,
+1095,
+376
+],
+"yaw": 90.0,
+"bmin": [
+-2376,
+967,
+248
+],
+"bmax": [
+-2120,
+1223,
+504
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "RectLight3",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-66,
+1095,
+353
+],
+"yaw": 90.0,
+"bmin": [
+-194,
+967,
+225
+],
+"bmax": [
+62,
+1223,
+481
+],
+"intensity": 40.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "RectLight4",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1150,
+-93,
+392
+],
+"yaw": 0.0,
+"bmin": [
+-1278,
+-221,
+264
+],
+"bmax": [
+-1022,
+35,
+520
+],
+"intensity": 40.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "SM_Door_Frame_2",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_Door_Frame_1.SM_Door_Frame_1",
+"folder": "None",
+"loc": [
+-1150,
+1650,
+0
+],
+"yaw": 0.0,
+"bmin": [
+-1270,
+1648,
+0
+],
+"bmax": [
+-1030,
+1672,
+241
+]
+},
+{
+"label": "SM_Door_1_A3",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_Door_1_A.SM_Door_1_A",
+"folder": "None",
+"loc": [
+-1267,
+1650,
+0
+],
+"yaw": -80.0,
+"bmin": [
+-1270,
+1534,
+1
+],
+"bmax": [
+-1242,
+1651,
+238
+]
+},
+{
+"label": "SM_Door_1_A4",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_Door_1_A.SM_Door_1_A",
+"folder": "None",
+"loc": [
+-1033,
+1652,
+0
+],
+"yaw": -100.0,
+"bmin": [
+-1056,
+1536,
+1
+],
+"bmax": [
+-1028,
+1653,
+238
+]
+},
+{
+"label": "RectLight6",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2287,
+89,
+379
+],
+"yaw": 90.0,
+"bmin": [
+-2415,
+-39,
+251
+],
+"bmax": [
+-2159,
+217,
+507
+],
+"intensity": 49.58951950073242,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "SM_door_2",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_2.SM_door_2",
+"folder": "None",
+"loc": [
+-2170,
+16,
+0
+],
+"yaw": -120.0,
+"bmin": [
+-2269,
+12,
+0
+],
+"bmax": [
+-2168,
+75,
+234
+]
+},
+{
+"label": "SM_door_Frame_3",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_Frame_2.SM_door_Frame_2",
+"folder": "None",
+"loc": [
+-2162,
+16,
+0
+],
+"yaw": 0.0,
+"bmin": [
+-2173,
+-100,
+0
+],
+"bmax": [
+-2160,
+20,
+238
+]
+},
+{
+"label": "SM_door_3",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_2.SM_door_2",
+"folder": "None",
+"loc": [
+-2170,
+-674,
+0
+],
+"yaw": -120.0,
+"bmin": [
+-2269,
+-678,
+0
+],
+"bmax": [
+-2168,
+-615,
+234
+]
+},
+{
+"label": "SM_door_Frame_4",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_Frame_2.SM_door_Frame_2",
+"folder": "None",
+"loc": [
+-2162,
+-674,
+0
+],
+"yaw": 0.0,
+"bmin": [
+-2173,
+-790,
+0
+],
+"bmax": [
+-2160,
+-670,
+238
+]
+},
+{
+"label": "SM_Cabin_Door_1",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_Cabin_Door_1.SM_Cabin_Door_1",
+"folder": "None",
+"loc": [
+-2400,
+415,
+10
+],
+"yaw": -30.0,
+"bmin": [
+-2404,
+341,
+10
+],
+"bmax": [
+-2279,
+418,
+242
+]
+},
+{
+"label": "SM_Cabin_Door_2",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_Cabin_Door_1.SM_Cabin_Door_1",
+"folder": "None",
+"loc": [
+-2400,
+235,
+10
+],
+"yaw": -90.0,
+"bmin": [
+-2407,
+98,
+10
+],
+"bmax": [
+-2397,
+235,
+242
+]
+},
+{
+"label": "SM_Cabin_Door_3",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_Cabin_Door_1.SM_Cabin_Door_1",
+"folder": "None",
+"loc": [
+-2400,
+-285,
+10
+],
+"yaw": -30.0,
+"bmin": [
+-2404,
+-359,
+10
+],
+"bmax": [
+-2279,
+-282,
+242
+]
+},
+{
+"label": "SM_Cabin_Door_4",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_Cabin_Door_1.SM_Cabin_Door_1",
+"folder": "None",
+"loc": [
+-2400,
+-465,
+10
+],
+"yaw": -90.0,
+"bmin": [
+-2407,
+-602,
+10
+],
+"bmax": [
+-2397,
+-465,
+242
+]
+},
+{
+"label": "SM_door_4",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_2.SM_door_2",
+"folder": "None",
+"loc": [
+-1848,
+-684,
+0
+],
+"yaw": 90.0,
+"bmin": [
+-1848,
+-687,
+0
+],
+"bmax": [
+-1736,
+-679,
+234
+]
+},
+{
+"label": "SM_door_Frame_5",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_Frame_2.SM_door_Frame_2",
+"folder": "None",
+"loc": [
+-1840,
+-684,
+0
+],
+"yaw": 0.0,
+"bmin": [
+-1852,
+-800,
+0
+],
+"bmax": [
+-1839,
+-680,
+238
+]
+},
+{
+"label": "SM_door_5",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_2.SM_door_2",
+"folder": "None",
+"loc": [
+-458,
+-414,
+0
+],
+"yaw": 90.0,
+"bmin": [
+-458,
+-417,
+0
+],
+"bmax": [
+-346,
+-409,
+234
+]
+},
+{
+"label": "SM_door_Frame_6",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_Frame_2.SM_door_Frame_2",
+"folder": "None",
+"loc": [
+-450,
+-414,
+0
+],
+"yaw": 0.0,
+"bmin": [
+-462,
+-530,
+0
+],
+"bmax": [
+-449,
+-410,
+238
+]
+},
+{
+"label": "SM_door_6",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_2.SM_door_2",
+"folder": "None",
+"loc": [
+-153,
+-404,
+0
+],
+"yaw": 90.0,
+"bmin": [
+-153,
+-407,
+0
+],
+"bmax": [
+-41,
+-399,
+234
+]
+},
+{
+"label": "SM_door_Frame_7",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_Frame_2.SM_door_Frame_2",
+"folder": "None",
+"loc": [
+-145,
+-404,
+0
+],
+"yaw": 0.0,
+"bmin": [
+-157,
+-520,
+0
+],
+"bmax": [
+-144,
+-400,
+238
+]
+},
+{
+"label": "SM_door_7",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_2.SM_door_2",
+"folder": "None",
+"loc": [
+-153,
+286,
+0
+],
+"yaw": 90.0,
+"bmin": [
+-153,
+283,
+0
+],
+"bmax": [
+-41,
+291,
+234
+]
+},
+{
+"label": "SM_door_Frame_8",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_Frame_2.SM_door_Frame_2",
+"folder": "None",
+"loc": [
+-145,
+286,
+0
+],
+"yaw": 0.0,
+"bmin": [
+-157,
+170,
+0
+],
+"bmax": [
+-144,
+290,
+238
+]
+},
+{
+"label": "SM_door_8",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_2.SM_door_2",
+"folder": "None",
+"loc": [
+-458,
+-414,
+400
+],
+"yaw": -90.0,
+"bmin": [
+-570,
+-419,
+400
+],
+"bmax": [
+-458,
+-411,
+634
+]
+},
+{
+"label": "SM_door_Frame_9",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_Frame_2.SM_door_Frame_2",
+"folder": "None",
+"loc": [
+-450,
+-414,
+400
+],
+"yaw": 0.0,
+"bmin": [
+-462,
+-530,
+400
+],
+"bmax": [
+-449,
+-410,
+638
+]
+},
+{
+"label": "SM_door_9",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_2.SM_door_2",
+"folder": "None",
+"loc": [
+-1848,
+-684,
+400
+],
+"yaw": 90.0,
+"bmin": [
+-1848,
+-687,
+400
+],
+"bmax": [
+-1736,
+-679,
+634
+]
+},
+{
+"label": "SM_door_Frame_10",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_Frame_2.SM_door_Frame_2",
+"folder": "None",
+"loc": [
+-1840,
+-684,
+400
+],
+"yaw": 0.0,
+"bmin": [
+-1852,
+-800,
+400
+],
+"bmax": [
+-1839,
+-680,
+638
+]
+},
+{
+"label": "RectLight8",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+39,
+-90,
+776
+],
+"yaw": 90.0,
+"bmin": [
+-89,
+-218,
+648
+],
+"bmax": [
+167,
+38,
+904
+],
+"intensity": 40.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "SM_glass_1",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_glass_1.SM_glass_1",
+"folder": "None",
+"loc": [
+-230,
+960,
+60
+],
+"yaw": 0.0,
+"bmin": [
+-234,
+956,
+60
+],
+"bmax": [
+-226,
+964,
+78
+]
+},
+{
+"label": "SM_glass_2",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_glass_1.SM_glass_1",
+"folder": "None",
+"loc": [
+-230,
+1035,
+60
+],
+"yaw": 0.0,
+"bmin": [
+-234,
+1031,
+60
+],
+"bmax": [
+-226,
+1039,
+78
+]
+},
+{
+"label": "SM_glass_3",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_glass_1.SM_glass_1",
+"folder": "None",
+"loc": [
+-230,
+1275,
+60
+],
+"yaw": 0.0,
+"bmin": [
+-234,
+1271,
+60
+],
+"bmax": [
+-226,
+1279,
+78
+]
+},
+{
+"label": "SM_glass_4",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_glass_1.SM_glass_1",
+"folder": "None",
+"loc": [
+-230,
+1350,
+60
+],
+"yaw": 0.0,
+"bmin": [
+-234,
+1346,
+60
+],
+"bmax": [
+-226,
+1354,
+78
+]
+},
+{
+"label": "SM_door_10",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_2.SM_door_2",
+"folder": "None",
+"loc": [
+-458,
+-414,
+800
+],
+"yaw": -90.0,
+"bmin": [
+-570,
+-419,
+800
+],
+"bmax": [
+-458,
+-411,
+1034
+]
+},
+{
+"label": "SM_door_Frame_11",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_Frame_2.SM_door_Frame_2",
+"folder": "None",
+"loc": [
+-450,
+-414,
+800
+],
+"yaw": 0.0,
+"bmin": [
+-462,
+-530,
+800
+],
+"bmax": [
+-449,
+-410,
+1038
+]
+},
+{
+"label": "SM_door_11",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_2.SM_door_2",
+"folder": "None",
+"loc": [
+-1848,
+-684,
+800
+],
+"yaw": 90.0,
+"bmin": [
+-1848,
+-687,
+800
+],
+"bmax": [
+-1736,
+-679,
+1034
+]
+},
+{
+"label": "SM_door_Frame_12",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_Frame_2.SM_door_Frame_2",
+"folder": "None",
+"loc": [
+-1840,
+-684,
+800
+],
+"yaw": 0.0,
+"bmin": [
+-1852,
+-800,
+800
+],
+"bmax": [
+-1839,
+-680,
+1038
+]
+},
+{
+"label": "RectLight9",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1150,
+-553,
+653
+],
+"yaw": -90.0,
+"bmin": [
+-1278,
+-681,
+525
+],
+"bmax": [
+-1022,
+-425,
+781
+],
+"intensity": 40.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "RectLight10",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2445,
+930,
+791
+],
+"yaw": -90.0,
+"bmin": [
+-2573,
+802,
+663
+],
+"bmax": [
+-2317,
+1058,
+919
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "RectLight12",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1575,
+-1095,
+769
+],
+"yaw": -0.0,
+"bmin": [
+-1703,
+-1223,
+641
+],
+"bmax": [
+-1447,
+-967,
+897
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "BP_Light_10",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2021,
+-595,
+390
+],
+"yaw": 0.0,
+"bmin": [
+-2128,
+-1004,
+197
+],
+"bmax": [
+-1872,
+-548,
+453
+]
+},
+{
+"label": "BP_Light_5",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-320,
+405,
+390
+],
+"yaw": 0.0,
+"bmin": [
+-427,
+-4,
+197
+],
+"bmax": [
+-171,
+452,
+453
+]
+},
+{
+"label": "BP_Light_13",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-225,
+-1083,
+390
+],
+"yaw": -90.0,
+"bmin": [
+-634,
+-1232,
+197
+],
+"bmax": [
+-178,
+-976,
+453
+]
+},
+{
+"label": "BP_Light_7",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-320,
+-595,
+390
+],
+"yaw": 0.0,
+"bmin": [
+-427,
+-1004,
+197
+],
+"bmax": [
+-171,
+-548,
+453
+]
+},
+{
+"label": "BP_Light_15",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1225,
+-1083,
+390
+],
+"yaw": -90.0,
+"bmin": [
+-1634,
+-1232,
+197
+],
+"bmax": [
+-1178,
+-976,
+453
+]
+},
+{
+"label": "BP_Light_16",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1725,
+-1083,
+390
+],
+"yaw": -90.0,
+"bmin": [
+-2134,
+-1232,
+197
+],
+"bmax": [
+-1678,
+-976,
+453
+]
+},
+{
+"label": "BP_Light_17",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1745,
+566,
+790
+],
+"yaw": 90.0,
+"bmin": [
+-1792,
+459,
+597
+],
+"bmax": [
+-1336,
+715,
+853
+]
+},
+{
+"label": "BP_Light_18",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-940,
+566,
+790
+],
+"yaw": 90.0,
+"bmin": [
+-987,
+459,
+597
+],
+"bmax": [
+-531,
+715,
+853
+]
+},
+{
+"label": "BP_Light_14",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-725,
+-1083,
+390
+],
+"yaw": -90.0,
+"bmin": [
+-1134,
+-1232,
+197
+],
+"bmax": [
+-678,
+-976,
+453
+]
+},
+{
+"label": "BP_Light_19",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1745,
+916,
+790
+],
+"yaw": 90.0,
+"bmin": [
+-1792,
+809,
+597
+],
+"bmax": [
+-1336,
+1065,
+853
+]
+},
+{
+"label": "BP_Light_20",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1116,
+916,
+790
+],
+"yaw": 90.0,
+"bmin": [
+-1163,
+809,
+597
+],
+"bmax": [
+-707,
+1065,
+853
+]
+},
+{
+"label": "BP_Light_22",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-890,
+1416,
+790
+],
+"yaw": 90.0,
+"bmin": [
+-937,
+1309,
+597
+],
+"bmax": [
+-481,
+1565,
+853
+]
+},
+{
+"label": "BP_Light_11",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1745,
+566,
+390
+],
+"yaw": 90.0,
+"bmin": [
+-1792,
+459,
+197
+],
+"bmax": [
+-1336,
+715,
+453
+]
+},
+{
+"label": "BP_Light_12",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-940,
+566,
+390
+],
+"yaw": 90.0,
+"bmin": [
+-987,
+459,
+197
+],
+"bmax": [
+-531,
+715,
+453
+]
+},
+{
+"label": "BP_Light_25",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-390,
+1416,
+790
+],
+"yaw": 90.0,
+"bmin": [
+-437,
+1309,
+597
+],
+"bmax": [
+19,
+1565,
+853
+]
+},
+{
+"label": "BP_Light_21",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1895,
+1416,
+790
+],
+"yaw": 90.0,
+"bmin": [
+-1942,
+1309,
+597
+],
+"bmax": [
+-1486,
+1565,
+853
+]
+},
+{
+"label": "BP_Light_27",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2388,
+919,
+790
+],
+"yaw": 90.0,
+"bmin": [
+-2435,
+812,
+597
+],
+"bmax": [
+-1979,
+1068,
+853
+]
+},
+{
+"label": "BP_Light_23",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1390,
+1416,
+790
+],
+"yaw": 90.0,
+"bmin": [
+-1437,
+1309,
+597
+],
+"bmax": [
+-981,
+1565,
+853
+]
+},
+{
+"label": "BP_Light_3",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-495,
+1250,
+390
+],
+"yaw": 0.0,
+"bmin": [
+-602,
+841,
+197
+],
+"bmax": [
+-346,
+1297,
+453
+]
+},
+{
+"label": "BP_Light_24",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2395,
+1416,
+790
+],
+"yaw": 90.0,
+"bmin": [
+-2442,
+1309,
+597
+],
+"bmax": [
+-1986,
+1565,
+853
+]
+},
+{
+"label": "BP_Light_31",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-225,
+-1083,
+785
+],
+"yaw": -90.0,
+"bmin": [
+-634,
+-1232,
+592
+],
+"bmax": [
+-178,
+-976,
+848
+]
+},
+{
+"label": "BP_Light_32",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-320,
+-595,
+785
+],
+"yaw": 0.0,
+"bmin": [
+-427,
+-1004,
+592
+],
+"bmax": [
+-171,
+-548,
+848
+]
+},
+{
+"label": "BP_Light_26",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-440,
+916,
+790
+],
+"yaw": 90.0,
+"bmin": [
+-487,
+809,
+597
+],
+"bmax": [
+-31,
+1065,
+853
+]
+},
+{
+"label": "BP_Light_34",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1725,
+-1083,
+785
+],
+"yaw": -90.0,
+"bmin": [
+-2134,
+-1232,
+592
+],
+"bmax": [
+-1678,
+-976,
+848
+]
+},
+{
+"label": "BP_Light_35",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-725,
+-1083,
+785
+],
+"yaw": -90.0,
+"bmin": [
+-1134,
+-1232,
+592
+],
+"bmax": [
+-678,
+-976,
+848
+]
+},
+{
+"label": "BP_Light_4",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1850,
+1250,
+390
+],
+"yaw": 0.0,
+"bmin": [
+-1957,
+841,
+197
+],
+"bmax": [
+-1701,
+1297,
+453
+]
+},
+{
+"label": "BP_Light_30",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-320,
+405,
+785
+],
+"yaw": 0.0,
+"bmin": [
+-427,
+-4,
+592
+],
+"bmax": [
+-171,
+452,
+848
+]
+},
+{
+"label": "BP_Light_33",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1225,
+-1083,
+785
+],
+"yaw": -90.0,
+"bmin": [
+-1634,
+-1232,
+592
+],
+"bmax": [
+-1178,
+-976,
+848
+]
+},
+{
+"label": "BP_Light_36",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-320,
+-95,
+785
+],
+"yaw": 0.0,
+"bmin": [
+-427,
+-504,
+592
+],
+"bmax": [
+-171,
+-48,
+848
+]
+},
+{
+"label": "BP_Light_1",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1745,
+1405,
+390
+],
+"yaw": 90.0,
+"bmin": [
+-1792,
+1298,
+197
+],
+"bmax": [
+-1336,
+1554,
+453
+]
+},
+{
+"label": "BP_Light_6",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-320,
+-95,
+390
+],
+"yaw": 0.0,
+"bmin": [
+-427,
+-504,
+197
+],
+"bmax": [
+-171,
+-48,
+453
+]
+},
+{
+"label": "BP_Light_2",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-940,
+1405,
+390
+],
+"yaw": 90.0,
+"bmin": [
+-987,
+1298,
+197
+],
+"bmax": [
+-531,
+1554,
+453
+]
+},
+{
+"label": "BP_Light_8",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2021,
+405,
+390
+],
+"yaw": 0.0,
+"bmin": [
+-2128,
+-4,
+197
+],
+"bmax": [
+-1872,
+452,
+453
+]
+},
+{
+"label": "BP_Light_9",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2021,
+-95,
+390
+],
+"yaw": 0.0,
+"bmin": [
+-2128,
+-504,
+197
+],
+"bmax": [
+-1872,
+-48,
+453
+]
+},
+{
+"label": "BP_Light_39",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2088,
+-595,
+785
+],
+"yaw": 0.0,
+"bmin": [
+-2196,
+-1004,
+592
+],
+"bmax": [
+-1940,
+-548,
+848
+]
+},
+{
+"label": "BP_Light_40",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2088,
+405,
+785
+],
+"yaw": 0.0,
+"bmin": [
+-2196,
+-4,
+592
+],
+"bmax": [
+-1940,
+452,
+848
+]
+},
+{
+"label": "BP_Light_41",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2088,
+-95,
+785
+],
+"yaw": 0.0,
+"bmin": [
+-2196,
+-504,
+592
+],
+"bmax": [
+-1940,
+-48,
+848
+]
+},
+{
+"label": "RectLight11",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2445,
+-681,
+791
+],
+"yaw": -90.0,
+"bmin": [
+-2573,
+-809,
+663
+],
+"bmax": [
+-2317,
+-553,
+919
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "RectLight14",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2445,
+53,
+791
+],
+"yaw": -90.0,
+"bmin": [
+-2573,
+-75,
+663
+],
+"bmax": [
+-2317,
+181,
+919
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "RectLight15",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-37,
+1551,
+744
+],
+"yaw": 0.0,
+"bmin": [
+-165,
+1423,
+616
+],
+"bmax": [
+91,
+1679,
+872
+],
+"intensity": 79.22274780273438,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "RectLight16",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1273,
+1551,
+769
+],
+"yaw": 0.0,
+"bmin": [
+-1401,
+1423,
+641
+],
+"bmax": [
+-1145,
+1679,
+897
+],
+"intensity": 79.22274780273438,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "RectLight17",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-2236,
+1551,
+769
+],
+"yaw": 0.0,
+"bmin": [
+-2364,
+1423,
+641
+],
+"bmax": [
+-2108,
+1679,
+897
+],
+"intensity": 79.22274780273438,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "RectLight7",
+"class": "RectLight",
+"mesh": "",
+"folder": "None",
+"loc": [
+-1597,
+-601,
+339
+],
+"yaw": 90.0,
+"bmin": [
+-1725,
+-729,
+211
+],
+"bmax": [
+-1469,
+-473,
+467
+],
+"intensity": 108.212890625,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "PlayerStart",
+"class": "PlayerStart",
+"mesh": "",
+"folder": "None",
+"loc": [
+-210,
+3390,
+100
+],
+"yaw": 0.0,
+"bmin": [
+-338,
+3262,
+-28
+],
+"bmax": [
+30,
+3518,
+228
+]
+},
+{
+"label": "RoadLamp_00",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp_Broken.SM_StreetLamp_Broken",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+24357,
+8895,
+0
+],
+"yaw": -171.6,
+"bmin": [
+24289,
+8877,
+-50
+],
+"bmax": [
+24394,
+9252,
+687
+]
+},
+{
+"label": "RoadLamp_01",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+21881,
+8895,
+0
+],
+"yaw": 172.7,
+"bmin": [
+21863,
+8877,
+-50
+],
+"bmax": [
+21923,
+9102,
+734
+]
+},
+{
+"label": "RoadLamp_02",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+19486,
+8895,
+0
+],
+"yaw": 176.8,
+"bmin": [
+19469,
+8878,
+-50
+],
+"bmax": [
+19513,
+9103,
+734
+]
+},
+{
+"label": "RoadLamp_03",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+17217,
+8895,
+0
+],
+"yaw": -172.9,
+"bmin": [
+17175,
+8877,
+-50
+],
+"bmax": [
+17235,
+9102,
+734
+]
+},
+{
+"label": "RoadLamp_04",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp_Broken.SM_StreetLamp_Broken",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+14737,
+8895,
+0
+],
+"yaw": -162.8,
+"bmin": [
+14616,
+8875,
+-50
+],
+"bmax": [
+14775,
+9245,
+687
+]
+},
+{
+"label": "RoadLamp_05",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+12267,
+8895,
+0
+],
+"yaw": -173.4,
+"bmin": [
+12227,
+8877,
+-50
+],
+"bmax": [
+12285,
+9102,
+734
+]
+},
+{
+"label": "RoadLamp_06",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+9844,
+8895,
+0
+],
+"yaw": 172.1,
+"bmin": [
+9826,
+8877,
+-50
+],
+"bmax": [
+9888,
+9102,
+734
+]
+},
+{
+"label": "RoadLamp_07",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+7583,
+8895,
+0
+],
+"yaw": 174.4,
+"bmin": [
+7565,
+8878,
+-50
+],
+"bmax": [
+7619,
+9103,
+734
+]
+},
+{
+"label": "RoadLamp_08",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+5111,
+8895,
+0
+],
+"yaw": -175.5,
+"bmin": [
+5079,
+8878,
+-50
+],
+"bmax": [
+5128,
+9103,
+734
+]
+},
+{
+"label": "RoadLamp_09",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+2748,
+8895,
+0
+],
+"yaw": 174.6,
+"bmin": [
+2731,
+8878,
+-50
+],
+"bmax": [
+2784,
+9103,
+734
+]
+},
+{
+"label": "RoadLamp_10",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+398,
+8895,
+0
+],
+"yaw": -179.3,
+"bmin": [
+379,
+8879,
+-50
+],
+"bmax": [
+414,
+9102,
+734
+]
+},
+{
+"label": "RoadLamp_11",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp_Broken.SM_StreetLamp_Broken",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+-2095,
+8895,
+0
+],
+"yaw": 145.8,
+"bmin": [
+-2117,
+8862,
+-50
+],
+"bmax": [
+-1866,
+9198,
+687
+]
+},
+{
+"label": "RoadLamp_12",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+-4564,
+8895,
+0
+],
+"yaw": -172.2,
+"bmin": [
+-4608,
+8877,
+-50
+],
+"bmax": [
+-4546,
+9102,
+734
+]
+},
+{
+"label": "RoadLamp_13",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp_Broken.SM_StreetLamp_Broken",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+-6948,
+8895,
+0
+],
+"yaw": 176.9,
+"bmin": [
+-6965,
+8877,
+-50
+],
+"bmax": [
+-6894,
+9251,
+687
+]
+},
+{
+"label": "RoadLamp_14",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+-9322,
+8895,
+0
+],
+"yaw": -175.6,
+"bmin": [
+-9354,
+8878,
+-50
+],
+"bmax": [
+-9305,
+9103,
+734
+]
+},
+{
+"label": "RoadLamp_15",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+-11624,
+8895,
+0
+],
+"yaw": 176.5,
+"bmin": [
+-11640,
+8878,
+-50
+],
+"bmax": [
+-11595,
+9103,
+734
+]
+},
+{
+"label": "RoadLamp_16",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+-14007,
+8895,
+0
+],
+"yaw": 179.0,
+"bmin": [
+-14023,
+8879,
+-50
+],
+"bmax": [
+-13988,
+9102,
+734
+]
+},
+{
+"label": "RoadLamp_17",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+-16408,
+8895,
+0
+],
+"yaw": -173.5,
+"bmin": [
+-16447,
+8877,
+-50
+],
+"bmax": [
+-16390,
+9102,
+734
+]
+},
+{
+"label": "RoadLamp_19",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp_Broken.SM_StreetLamp_Broken",
+"folder": "AbandonedOffice/Exterior/Road",
+"loc": [
+-21300,
+8895,
+0
+],
+"yaw": -177.9,
+"bmin": [
+-21329,
+8878,
+-50
+],
+"bmax": [
+-21264,
+9252,
+687
+]
+},
+{
+"label": "DriveLamp_00",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp.SM_StreetLamp",
+"folder": "AbandonedOffice/Exterior/Checkpoint",
+"loc": [
+-1550,
+4795,
+0
+],
+"yaw": -95.6,
+"bmin": [
+-1758,
+4778,
+-50
+],
+"bmax": [
+-1533,
+4831,
+734
+]
+},
+{
+"label": "DriveLamp_01",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Exterior/SM_StreetLamp_Broken.SM_StreetLamp_Broken",
+"folder": "AbandonedOffice/Exterior/Checkpoint",
+"loc": [
+-2590,
+6495,
+0
+],
+"yaw": 94.6,
+"bmin": [
+-2607,
+6459,
+-50
+],
+"bmax": [
+-2232,
+6539,
+687
+]
+},
+{
+"label": "Lobby_TapePost",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/BarrierPost/SM_BarrierPost.SM_BarrierPost",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-870,
+1555,
+0
+],
+"yaw": -155.0,
+"bmin": [
+-970,
+1496,
+0
+],
+"bmax": [
+-847,
+1578,
+98
+]
+},
+{
+"label": "Lobby_CeilingHole",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Ceiling/SM_CeilingHole_Hanging.SM_CeilingHole_Hanging",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1150,
+1250,
+390
+],
+"yaw": 0.0,
+"bmin": [
+-1181,
+1219,
+259
+],
+"bmax": [
+-1113,
+1281,
+393
+]
+},
+{
+"label": "Lobby_FallenTiles",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Ceiling/SM_CeilingTiles_Fallen.SM_CeilingTiles_Fallen",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1140,
+1240,
+0
+],
+"yaw": 162.9,
+"bmin": [
+-1235,
+1153,
+0
+],
+"bmax": [
+-1039,
+1326,
+6
+]
+},
+{
+"label": "Lobby_Cone0",
+"class": "GrabbableProp",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1290,
+1160,
+0
+],
+"yaw": -158.5,
+"bmin": [
+-1313,
+1137,
+0
+],
+"bmax": [
+-1267,
+1183,
+70
+]
+},
+{
+"label": "Lobby_Cone1",
+"class": "GrabbableProp",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1020,
+1150,
+0
+],
+"yaw": -27.3,
+"bmin": [
+-1044,
+1126,
+0
+],
+"bmax": [
+-996,
+1174,
+70
+]
+},
+{
+"label": "Lobby_Cone2",
+"class": "GrabbableProp",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1000,
+1345,
+0
+],
+"yaw": 167.6,
+"bmin": [
+-1021,
+1324,
+0
+],
+"bmax": [
+-979,
+1366,
+70
+]
+},
+{
+"label": "Lobby_Cone3",
+"class": "GrabbableProp",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1270,
+1360,
+0
+],
+"yaw": -177.2,
+"bmin": [
+-1289,
+1341,
+0
+],
+"bmax": [
+-1251,
+1379,
+70
+]
+},
+{
+"label": "Lobby_WaterCooler",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/WaterCooler/SM_WaterCooler.SM_WaterCooler",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-721,
+720,
+0
+],
+"yaw": -90.0,
+"bmin": [
+-785,
+681,
+0
+],
+"bmax": [
+-702,
+736,
+155
+]
+},
+{
+"label": "Lobby_Clock",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Wall/SM_WallClock.SM_WallClock",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1449,
+735,
+300
+],
+"yaw": 8.0,
+"bmin": [
+-1466,
+733,
+284
+],
+"bmax": [
+-1433,
+742,
+316
+]
+},
+{
+"label": "Lobby_CorkBoard",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Wall/SM_CorkBoard.SM_CorkBoard",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-820,
+735,
+165
+],
+"yaw": 0.0,
+"bmin": [
+-865,
+735,
+135
+],
+"bmax": [
+-775,
+738,
+195
+]
+},
+{
+"label": "Lobby_DeadPlantW",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Plants/SM_DeadPlant_Large.SM_DeadPlant_Large",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-2658,
+610,
+0
+],
+"yaw": -148.5,
+"bmin": [
+-2702,
+571,
+0
+],
+"bmax": [
+-2620,
+652,
+149
+]
+},
+{
+"label": "Lobby_DeadPlantE",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Plants/SM_DeadPlant_Large.SM_DeadPlant_Large",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+333,
+610,
+0
+],
+"yaw": 66.5,
+"bmin": [
+299,
+571,
+0
+],
+"bmax": [
+375,
+650,
+149
+]
+},
+{
+"label": "Lobby_BinW",
+"class": "GrabbableProp",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1735,
+1475,
+0
+],
+"yaw": -175.7,
+"bmin": [
+-1752,
+1459,
+0
+],
+"bmax": [
+-1718,
+1491,
+39
+]
+},
+{
+"label": "Lobby_BinE",
+"class": "GrabbableProp",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-585,
+1330,
+0
+],
+"yaw": -133.2,
+"bmin": [
+-607,
+1309,
+0
+],
+"bmax": [
+-564,
+1352,
+39
+]
+},
+{
+"label": "Lobby_BoxesDoor_Box0",
+"class": "GrabbableProp",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1650,
+1600,
+0
+],
+"yaw": 7.0,
+"bmin": [
+-1678,
+1579,
+0
+],
+"bmax": [
+-1622,
+1621,
+37
+]
+},
+{
+"label": "Lobby_BoxesDoor_Box1",
+"class": "GrabbableProp",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1652,
+1597,
+37
+],
+"yaw": 9.3,
+"bmin": [
+-1680,
+1575,
+37
+],
+"bmax": [
+-1623,
+1619,
+75
+]
+},
+{
+"label": "Lobby_BoxOpen",
+"class": "GrabbableProp",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1560,
+1615,
+0
+],
+"yaw": 7.7,
+"bmin": [
+-1594,
+1582,
+-1
+],
+"bmax": [
+-1532,
+1650,
+34
+]
+},
+{
+"label": "Lobby_Paper0",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1333,
+1617,
+0
+],
+"yaw": -12.7,
+"bmin": [
+-1347,
+1600,
+0
+],
+"bmax": [
+-1320,
+1634,
+3
+]
+},
+{
+"label": "Lobby_Paper1",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1088,
+1555,
+0
+],
+"yaw": 56.7,
+"bmin": [
+-1107,
+1538,
+0
+],
+"bmax": [
+-1070,
+1572,
+3
+]
+},
+{
+"label": "Lobby_Paper2",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1344,
+1540,
+0
+],
+"yaw": 21.4,
+"bmin": [
+-1359,
+1522,
+0
+],
+"bmax": [
+-1329,
+1557,
+3
+]
+},
+{
+"label": "Lobby_Paper3",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1274,
+1491,
+0
+],
+"yaw": 10.8,
+"bmin": [
+-1287,
+1475,
+0
+],
+"bmax": [
+-1261,
+1508,
+3
+]
+},
+{
+"label": "Lobby_Paper4",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1164,
+1525,
+0
+],
+"yaw": -56.7,
+"bmin": [
+-1183,
+1508,
+0
+],
+"bmax": [
+-1146,
+1542,
+3
+]
+},
+{
+"label": "LobbyW_Paper0",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1844,
+1246,
+0
+],
+"yaw": 179.9,
+"bmin": [
+-1855,
+1231,
+0
+],
+"bmax": [
+-1834,
+1261,
+3
+]
+},
+{
+"label": "LobbyW_Paper1",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1801,
+1219,
+0
+],
+"yaw": 100.1,
+"bmin": [
+-1818,
+1206,
+0
+],
+"bmax": [
+-1785,
+1232,
+3
+]
+},
+{
+"label": "LobbyW_Paper2",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1701,
+1299,
+0
+],
+"yaw": -57.5,
+"bmin": [
+-1719,
+1283,
+0
+],
+"bmax": [
+-1683,
+1316,
+3
+]
+},
+{
+"label": "South_CeilingCables",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Ceiling/SM_CeilingHole_Cables.SM_CeilingHole_Cables",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-800,
+-1150,
+390
+],
+"yaw": 0.0,
+"bmin": [
+-831,
+-1181,
+245
+],
+"bmax": [
+-766,
+-1114,
+393
+]
+},
+{
+"label": "South_FallenTiles",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Ceiling/SM_CeilingTiles_Fallen.SM_CeilingTiles_Fallen",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-770,
+-1115,
+0
+],
+"yaw": -105.2,
+"bmin": [
+-854,
+-1209,
+0
+],
+"bmax": [
+-685,
+-1016,
+6
+]
+},
+{
+"label": "LobbyWalk_Paper0",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-514,
+1157,
+0
+],
+"yaw": 70.8,
+"bmin": [
+-532,
+1143,
+0
+],
+"bmax": [
+-497,
+1172,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper1",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+23,
+1135,
+0
+],
+"yaw": -142.7,
+"bmin": [
+5,
+1117,
+0
+],
+"bmax": [
+40,
+1153,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper2",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1325,
+839,
+0
+],
+"yaw": 13.9,
+"bmin": [
+-1339,
+823,
+0
+],
+"bmax": [
+-1312,
+856,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper3",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+55,
+891,
+0
+],
+"yaw": -106.4,
+"bmin": [
+38,
+876,
+0
+],
+"bmax": [
+72,
+905,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper4",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1745,
+1113,
+0
+],
+"yaw": -145.3,
+"bmin": [
+-1762,
+1095,
+0
+],
+"bmax": [
+-1728,
+1131,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper5",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1652,
+867,
+0
+],
+"yaw": -100.7,
+"bmin": [
+-1668,
+854,
+0
+],
+"bmax": [
+-1635,
+880,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper6",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-2225,
+887,
+0
+],
+"yaw": -158.6,
+"bmin": [
+-2240,
+869,
+0
+],
+"bmax": [
+-2209,
+904,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper7",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-226,
+1033,
+0
+],
+"yaw": 100.9,
+"bmin": [
+-243,
+1020,
+0
+],
+"bmax": [
+-210,
+1047,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper8",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-61,
+878,
+0
+],
+"yaw": 6.0,
+"bmin": [
+-73,
+862,
+0
+],
+"bmax": [
+-49,
+893,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper9",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1714,
+969,
+0
+],
+"yaw": 21.8,
+"bmin": [
+-1729,
+952,
+0
+],
+"bmax": [
+-1698,
+987,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper10",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1951,
+940,
+0
+],
+"yaw": -154.0,
+"bmin": [
+-1966,
+922,
+0
+],
+"bmax": [
+-1935,
+958,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper11",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-2064,
+938,
+0
+],
+"yaw": -39.3,
+"bmin": [
+-2082,
+919,
+0
+],
+"bmax": [
+-2047,
+956,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper12",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+100,
+1050,
+0
+],
+"yaw": -111.2,
+"bmin": [
+83,
+1034,
+0
+],
+"bmax": [
+118,
+1065,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper13",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-910,
+853,
+0
+],
+"yaw": 12.6,
+"bmin": [
+-923,
+837,
+0
+],
+"bmax": [
+-896,
+870,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper14",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-2354,
+1146,
+0
+],
+"yaw": -107.7,
+"bmin": [
+-2372,
+1131,
+0
+],
+"bmax": [
+-2337,
+1160,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper15",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+55,
+808,
+0
+],
+"yaw": -131.0,
+"bmin": [
+37,
+790,
+0
+],
+"bmax": [
+73,
+826,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper16",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1170,
+1078,
+0
+],
+"yaw": 114.8,
+"bmin": [
+-1188,
+1062,
+0
+],
+"bmax": [
+-1152,
+1093,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper17",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+148,
+829,
+0
+],
+"yaw": -163.4,
+"bmin": [
+134,
+811,
+0
+],
+"bmax": [
+163,
+846,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper18",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-521,
+1142,
+0
+],
+"yaw": -94.6,
+"bmin": [
+-536,
+1130,
+0
+],
+"bmax": [
+-505,
+1154,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper19",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-606,
+1101,
+0
+],
+"yaw": -30.6,
+"bmin": [
+-622,
+1083,
+0
+],
+"bmax": [
+-589,
+1120,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper20",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1503,
+1060,
+0
+],
+"yaw": -35.7,
+"bmin": [
+-1520,
+1042,
+0
+],
+"bmax": [
+-1486,
+1079,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper21",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-179,
+959,
+0
+],
+"yaw": -75.4,
+"bmin": [
+-196,
+945,
+0
+],
+"bmax": [
+-162,
+972,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper22",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-198,
+1018,
+0
+],
+"yaw": -135.0,
+"bmin": [
+-216,
+1000,
+0
+],
+"bmax": [
+-180,
+1036,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper23",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-1425,
+1021,
+0
+],
+"yaw": -140.8,
+"bmin": [
+-1443,
+1003,
+0
+],
+"bmax": [
+-1408,
+1040,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper24",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-2195,
+1043,
+0
+],
+"yaw": -2.4,
+"bmin": [
+-2207,
+1028,
+0
+],
+"bmax": [
+-2184,
+1058,
+3
+]
+},
+{
+"label": "LobbyWalk_Paper25",
+"class": "LoosePaper",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor1",
+"loc": [
+-157,
+1077,
+0
+],
+"yaw": 139.8,
+"bmin": [
+-174,
+1059,
+0
+],
+"bmax": [
+-139,
+1095,
+3
+]
+},
+{
+"label": "Open_CeilingHole",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Ceiling/SM_CeilingHole_Hanging.SM_CeilingHole_Hanging",
+"folder": "AbandonedOffice/Interior/Floor2",
+"loc": [
+-1300,
+950,
+790
+],
+"yaw": 0.0,
+"bmin": [
+-1331,
+919,
+659
+],
+"bmax": [
+-1263,
+981,
+793
+]
+},
+{
+"label": "Open_FallenTiles",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Ceiling/SM_CeilingTiles_Fallen.SM_CeilingTiles_Fallen",
+"folder": "AbandonedOffice/Interior/Floor2",
+"loc": [
+-1270,
+925,
+400
+],
+"yaw": 31.1,
+"bmin": [
+-1377,
+825,
+400
+],
+"bmax": [
+-1168,
+1022,
+406
+]
+},
+{
+"label": "F3_RectLight8",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+39,
+-90,
+1176
+],
+"yaw": 90.0,
+"bmin": [
+-89,
+-218,
+1048
+],
+"bmax": [
+167,
+38,
+1304
+],
+"intensity": 40.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F3_RectLight9",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-1150,
+-553,
+1053
+],
+"yaw": -90.0,
+"bmin": [
+-1278,
+-681,
+925
+],
+"bmax": [
+-1022,
+-425,
+1181
+],
+"intensity": 40.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F3_RectLight10",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-2445,
+930,
+1191
+],
+"yaw": -90.0,
+"bmin": [
+-2573,
+802,
+1063
+],
+"bmax": [
+-2317,
+1058,
+1319
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F3_RectLight12",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-1575,
+-1095,
+1169
+],
+"yaw": -0.0,
+"bmin": [
+-1703,
+-1223,
+1041
+],
+"bmax": [
+-1447,
+-967,
+1297
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F3_BP_Light_17",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-1745,
+566,
+1190
+],
+"yaw": 90.0,
+"bmin": [
+-1792,
+459,
+997
+],
+"bmax": [
+-1336,
+715,
+1253
+]
+},
+{
+"label": "F3_BP_Light_18",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-940,
+566,
+1190
+],
+"yaw": 90.0,
+"bmin": [
+-987,
+459,
+997
+],
+"bmax": [
+-531,
+715,
+1253
+]
+},
+{
+"label": "F3_BP_Light_19",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-1745,
+916,
+1190
+],
+"yaw": 90.0,
+"bmin": [
+-1792,
+809,
+997
+],
+"bmax": [
+-1336,
+1065,
+1253
+]
+},
+{
+"label": "F3_BP_Light_20",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-1116,
+916,
+1190
+],
+"yaw": 90.0,
+"bmin": [
+-1163,
+809,
+997
+],
+"bmax": [
+-707,
+1065,
+1253
+]
+},
+{
+"label": "F3_BP_Light_22",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-890,
+1416,
+1190
+],
+"yaw": 90.0,
+"bmin": [
+-937,
+1309,
+997
+],
+"bmax": [
+-481,
+1565,
+1253
+]
+},
+{
+"label": "F3_BP_Light_25",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-390,
+1416,
+1190
+],
+"yaw": 90.0,
+"bmin": [
+-437,
+1309,
+997
+],
+"bmax": [
+19,
+1565,
+1253
+]
+},
+{
+"label": "F3_BP_Light_21",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-1895,
+1416,
+1190
+],
+"yaw": 90.0,
+"bmin": [
+-1942,
+1309,
+997
+],
+"bmax": [
+-1486,
+1565,
+1253
+]
+},
+{
+"label": "F3_BP_Light_27",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-2388,
+919,
+1190
+],
+"yaw": 90.0,
+"bmin": [
+-2435,
+812,
+997
+],
+"bmax": [
+-1979,
+1068,
+1253
+]
+},
+{
+"label": "F3_BP_Light_23",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-1390,
+1416,
+1190
+],
+"yaw": 90.0,
+"bmin": [
+-1437,
+1309,
+997
+],
+"bmax": [
+-981,
+1565,
+1253
+]
+},
+{
+"label": "F3_BP_Light_24",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-2395,
+1416,
+1190
+],
+"yaw": 90.0,
+"bmin": [
+-2442,
+1309,
+997
+],
+"bmax": [
+-1986,
+1565,
+1253
+]
+},
+{
+"label": "F3_BP_Light_31",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-225,
+-1083,
+1185
+],
+"yaw": -90.0,
+"bmin": [
+-634,
+-1232,
+992
+],
+"bmax": [
+-178,
+-976,
+1248
+]
+},
+{
+"label": "F3_BP_Light_32",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-320,
+-595,
+1185
+],
+"yaw": 0.0,
+"bmin": [
+-427,
+-1004,
+992
+],
+"bmax": [
+-171,
+-548,
+1248
+]
+},
+{
+"label": "F3_BP_Light_26",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-440,
+916,
+1190
+],
+"yaw": 90.0,
+"bmin": [
+-487,
+809,
+997
+],
+"bmax": [
+-31,
+1065,
+1253
+]
+},
+{
+"label": "F3_BP_Light_34",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-1725,
+-1083,
+1185
+],
+"yaw": -90.0,
+"bmin": [
+-2134,
+-1232,
+992
+],
+"bmax": [
+-1678,
+-976,
+1248
+]
+},
+{
+"label": "F3_BP_Light_35",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-725,
+-1083,
+1185
+],
+"yaw": -90.0,
+"bmin": [
+-1134,
+-1232,
+992
+],
+"bmax": [
+-678,
+-976,
+1248
+]
+},
+{
+"label": "F3_BP_Light_30",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-320,
+405,
+1185
+],
+"yaw": 0.0,
+"bmin": [
+-427,
+-4,
+992
+],
+"bmax": [
+-171,
+452,
+1248
+]
+},
+{
+"label": "F3_BP_Light_33",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-1225,
+-1083,
+1185
+],
+"yaw": -90.0,
+"bmin": [
+-1634,
+-1232,
+992
+],
+"bmax": [
+-1178,
+-976,
+1248
+]
+},
+{
+"label": "F3_BP_Light_36",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-320,
+-95,
+1185
+],
+"yaw": 0.0,
+"bmin": [
+-427,
+-504,
+992
+],
+"bmax": [
+-171,
+-48,
+1248
+]
+},
+{
+"label": "F3_BP_Light_39",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-2088,
+-595,
+1185
+],
+"yaw": 0.0,
+"bmin": [
+-2196,
+-1004,
+992
+],
+"bmax": [
+-1940,
+-548,
+1248
+]
+},
+{
+"label": "F3_BP_Light_40",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-2088,
+405,
+1185
+],
+"yaw": 0.0,
+"bmin": [
+-2196,
+-4,
+992
+],
+"bmax": [
+-1940,
+452,
+1248
+]
+},
+{
+"label": "F3_BP_Light_41",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-2088,
+-95,
+1185
+],
+"yaw": 0.0,
+"bmin": [
+-2196,
+-504,
+992
+],
+"bmax": [
+-1940,
+-48,
+1248
+]
+},
+{
+"label": "F3_RectLight11",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-2445,
+-681,
+1191
+],
+"yaw": -90.0,
+"bmin": [
+-2573,
+-809,
+1063
+],
+"bmax": [
+-2317,
+-553,
+1319
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F3_RectLight14",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-2445,
+53,
+1191
+],
+"yaw": -90.0,
+"bmin": [
+-2573,
+-75,
+1063
+],
+"bmax": [
+-2317,
+181,
+1319
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F3_RectLight15",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-37,
+1551,
+1144
+],
+"yaw": 0.0,
+"bmin": [
+-165,
+1423,
+1016
+],
+"bmax": [
+91,
+1679,
+1272
+],
+"intensity": 79.22274780273438,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F3_RectLight16",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-1273,
+1551,
+1169
+],
+"yaw": 0.0,
+"bmin": [
+-1401,
+1423,
+1041
+],
+"bmax": [
+-1145,
+1679,
+1297
+],
+"intensity": 79.22274780273438,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F3_RectLight17",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-2236,
+1551,
+1169
+],
+"yaw": 0.0,
+"bmin": [
+-2364,
+1423,
+1041
+],
+"bmax": [
+-2108,
+1679,
+1297
+],
+"intensity": 79.22274780273438,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F3_Open_CeilingHole",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Ceiling/SM_CeilingHole_Hanging.SM_CeilingHole_Hanging",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-1300,
+950,
+1190
+],
+"yaw": 0.0,
+"bmin": [
+-1331,
+919,
+1059
+],
+"bmax": [
+-1263,
+981,
+1193
+]
+},
+{
+"label": "F3_Open_FallenTiles",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Ceiling/SM_CeilingTiles_Fallen.SM_CeilingTiles_Fallen",
+"folder": "AbandonedOffice/Interior/Floor3",
+"loc": [
+-1270,
+925,
+800
+],
+"yaw": 31.1,
+"bmin": [
+-1377,
+825,
+800
+],
+"bmax": [
+-1168,
+1022,
+806
+]
+},
+{
+"label": "F4_SM_door_8",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_2.SM_door_2",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-458,
+-414,
+1200
+],
+"yaw": -90.0,
+"bmin": [
+-570,
+-419,
+1200
+],
+"bmax": [
+-458,
+-411,
+1434
+]
+},
+{
+"label": "F4_SM_door_Frame_9",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_Frame_2.SM_door_Frame_2",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-450,
+-414,
+1200
+],
+"yaw": 0.0,
+"bmin": [
+-462,
+-530,
+1200
+],
+"bmax": [
+-449,
+-410,
+1438
+]
+},
+{
+"label": "F4_SM_door_9",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_2.SM_door_2",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1848,
+-684,
+1200
+],
+"yaw": 90.0,
+"bmin": [
+-1848,
+-687,
+1200
+],
+"bmax": [
+-1736,
+-679,
+1434
+]
+},
+{
+"label": "F4_SM_door_Frame_10",
+"class": "StaticMeshActor",
+"mesh": "/Game/Office_Pack_Vol_1/Models/SM_door_Frame_2.SM_door_Frame_2",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1840,
+-684,
+1200
+],
+"yaw": 0.0,
+"bmin": [
+-1852,
+-800,
+1200
+],
+"bmax": [
+-1839,
+-680,
+1438
+]
+},
+{
+"label": "F4_RectLight8",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+39,
+-90,
+1576
+],
+"yaw": 90.0,
+"bmin": [
+-89,
+-218,
+1448
+],
+"bmax": [
+167,
+38,
+1704
+],
+"intensity": 40.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F4_RectLight9",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1150,
+-553,
+1453
+],
+"yaw": -90.0,
+"bmin": [
+-1278,
+-681,
+1325
+],
+"bmax": [
+-1022,
+-425,
+1581
+],
+"intensity": 40.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F4_RectLight10",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-2445,
+930,
+1591
+],
+"yaw": -90.0,
+"bmin": [
+-2573,
+802,
+1463
+],
+"bmax": [
+-2317,
+1058,
+1719
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F4_RectLight12",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1575,
+-1095,
+1569
+],
+"yaw": -0.0,
+"bmin": [
+-1703,
+-1223,
+1441
+],
+"bmax": [
+-1447,
+-967,
+1697
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F4_BP_Light_17",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1745,
+566,
+1590
+],
+"yaw": 90.0,
+"bmin": [
+-1792,
+459,
+1397
+],
+"bmax": [
+-1336,
+715,
+1653
+]
+},
+{
+"label": "F4_BP_Light_18",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-940,
+566,
+1590
+],
+"yaw": 90.0,
+"bmin": [
+-987,
+459,
+1397
+],
+"bmax": [
+-531,
+715,
+1653
+]
+},
+{
+"label": "F4_BP_Light_19",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1745,
+916,
+1590
+],
+"yaw": 90.0,
+"bmin": [
+-1792,
+809,
+1397
+],
+"bmax": [
+-1336,
+1065,
+1653
+]
+},
+{
+"label": "F4_BP_Light_20",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1116,
+916,
+1590
+],
+"yaw": 90.0,
+"bmin": [
+-1163,
+809,
+1397
+],
+"bmax": [
+-707,
+1065,
+1653
+]
+},
+{
+"label": "F4_BP_Light_22",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-890,
+1416,
+1590
+],
+"yaw": 90.0,
+"bmin": [
+-937,
+1309,
+1397
+],
+"bmax": [
+-481,
+1565,
+1653
+]
+},
+{
+"label": "F4_BP_Light_25",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-390,
+1416,
+1590
+],
+"yaw": 90.0,
+"bmin": [
+-437,
+1309,
+1397
+],
+"bmax": [
+19,
+1565,
+1653
+]
+},
+{
+"label": "F4_BP_Light_21",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1895,
+1416,
+1590
+],
+"yaw": 90.0,
+"bmin": [
+-1942,
+1309,
+1397
+],
+"bmax": [
+-1486,
+1565,
+1653
+]
+},
+{
+"label": "F4_BP_Light_27",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-2388,
+919,
+1590
+],
+"yaw": 90.0,
+"bmin": [
+-2435,
+812,
+1397
+],
+"bmax": [
+-1979,
+1068,
+1653
+]
+},
+{
+"label": "F4_BP_Light_23",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1390,
+1416,
+1590
+],
+"yaw": 90.0,
+"bmin": [
+-1437,
+1309,
+1397
+],
+"bmax": [
+-981,
+1565,
+1653
+]
+},
+{
+"label": "F4_BP_Light_24",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-2395,
+1416,
+1590
+],
+"yaw": 90.0,
+"bmin": [
+-2442,
+1309,
+1397
+],
+"bmax": [
+-1986,
+1565,
+1653
+]
+},
+{
+"label": "F4_BP_Light_31",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-225,
+-1083,
+1585
+],
+"yaw": -90.0,
+"bmin": [
+-634,
+-1232,
+1392
+],
+"bmax": [
+-178,
+-976,
+1648
+]
+},
+{
+"label": "F4_BP_Light_32",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-320,
+-595,
+1585
+],
+"yaw": 0.0,
+"bmin": [
+-427,
+-1004,
+1392
+],
+"bmax": [
+-171,
+-548,
+1648
+]
+},
+{
+"label": "F4_BP_Light_26",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-440,
+916,
+1590
+],
+"yaw": 90.0,
+"bmin": [
+-487,
+809,
+1397
+],
+"bmax": [
+-31,
+1065,
+1653
+]
+},
+{
+"label": "F4_BP_Light_34",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1725,
+-1083,
+1585
+],
+"yaw": -90.0,
+"bmin": [
+-2134,
+-1232,
+1392
+],
+"bmax": [
+-1678,
+-976,
+1648
+]
+},
+{
+"label": "F4_BP_Light_35",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-725,
+-1083,
+1585
+],
+"yaw": -90.0,
+"bmin": [
+-1134,
+-1232,
+1392
+],
+"bmax": [
+-678,
+-976,
+1648
+]
+},
+{
+"label": "F4_BP_Light_30",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-320,
+405,
+1585
+],
+"yaw": 0.0,
+"bmin": [
+-427,
+-4,
+1392
+],
+"bmax": [
+-171,
+452,
+1648
+]
+},
+{
+"label": "F4_BP_Light_33",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1225,
+-1083,
+1585
+],
+"yaw": -90.0,
+"bmin": [
+-1634,
+-1232,
+1392
+],
+"bmax": [
+-1178,
+-976,
+1648
+]
+},
+{
+"label": "F4_BP_Light_36",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-320,
+-95,
+1585
+],
+"yaw": 0.0,
+"bmin": [
+-427,
+-504,
+1392
+],
+"bmax": [
+-171,
+-48,
+1648
+]
+},
+{
+"label": "F4_BP_Light_39",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-2088,
+-595,
+1585
+],
+"yaw": 0.0,
+"bmin": [
+-2196,
+-1004,
+1392
+],
+"bmax": [
+-1940,
+-548,
+1648
+]
+},
+{
+"label": "F4_BP_Light_40",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-2088,
+405,
+1585
+],
+"yaw": 0.0,
+"bmin": [
+-2196,
+-4,
+1392
+],
+"bmax": [
+-1940,
+452,
+1648
+]
+},
+{
+"label": "F4_BP_Light_41",
+"class": "BP_Light_1_C",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-2088,
+-95,
+1585
+],
+"yaw": 0.0,
+"bmin": [
+-2196,
+-504,
+1392
+],
+"bmax": [
+-1940,
+-48,
+1648
+]
+},
+{
+"label": "F4_RectLight11",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-2445,
+-681,
+1591
+],
+"yaw": -90.0,
+"bmin": [
+-2573,
+-809,
+1463
+],
+"bmax": [
+-2317,
+-553,
+1719
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F4_RectLight14",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-2445,
+53,
+1591
+],
+"yaw": -90.0,
+"bmin": [
+-2573,
+-75,
+1463
+],
+"bmax": [
+-2317,
+181,
+1719
+],
+"intensity": 50.0,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F4_RectLight15",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-37,
+1551,
+1544
+],
+"yaw": 0.0,
+"bmin": [
+-165,
+1423,
+1416
+],
+"bmax": [
+91,
+1679,
+1672
+],
+"intensity": 79.22274780273438,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F4_RectLight16",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1273,
+1551,
+1569
+],
+"yaw": 0.0,
+"bmin": [
+-1401,
+1423,
+1441
+],
+"bmax": [
+-1145,
+1679,
+1697
+],
+"intensity": 79.22274780273438,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F4_RectLight17",
+"class": "RectLight",
+"mesh": "",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-2236,
+1551,
+1569
+],
+"yaw": 0.0,
+"bmin": [
+-2364,
+1423,
+1441
+],
+"bmax": [
+-2108,
+1679,
+1697
+],
+"intensity": 79.22274780273438,
+"mobility": "<ComponentMobility.MOVABLE: 2>"
+},
+{
+"label": "F4_Open_CeilingHole",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Ceiling/SM_CeilingHole_Hanging.SM_CeilingHole_Hanging",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1300,
+950,
+1590
+],
+"yaw": 0.0,
+"bmin": [
+-1331,
+919,
+1459
+],
+"bmax": [
+-1263,
+981,
+1593
+]
+},
+{
+"label": "F4_Open_FallenTiles",
+"class": "StaticMeshActor",
+"mesh": "/Game/_Game/Environment/AbandonedOffice/Ceiling/SM_CeilingTiles_Fallen.SM_CeilingTiles_Fallen",
+"folder": "AbandonedOffice/Interior/Floor4",
+"loc": [
+-1270,
+925,
+1200
+],
+"yaw": 31.1,
+"bmin": [
+-1377,
+825,
+1200
+],
+"bmax": [
+-1168,
+1022,
+1206
+]
+},
+{
+"label": "Lobby_SparkingCables",
+"class": "SparkingCables",
+"mesh": "",
+"folder": "AbandonedOffice/Lab5",
+"loc": [
+-1150,
+1250,
+390
+],
+"yaw": 0.0,
+"bmin": [
+-1317,
+0,
+-85
+],
+"bmax": [
+0,
+1428,
+392
+]
+},
+{
+"label": "Lobby_SmokeZone",
+"class": "SmokeZone",
+"mesh": "",
+"folder": "AbandonedOffice/Lab5",
+"loc": [
+-1274,
+590,
+-28
+],
+"yaw": 0.0,
+"bmin": [
+-2891,
+-988,
+-713
+],
+"bmax": [
+151,
+2040,
+2649
+]
+},
+{
+"label": "SecurityGuard_1",
+"class": "BP_SecurityGuard_C",
+"mesh": "",
+"folder": "AbandonedOffice/Lab5",
+"loc": [
+-1546,
+1111,
+78
+],
+"yaw": 180.0,
+"bmin": [
+-1750,
+1043,
+-10
+],
+"bmax": [
+-1517,
+1179,
+173
+]
+},
+{
+"label": "SecurityGuard_Gate",
+"class": "BP_SecurityGuard_C",
+"mesh": "",
+"folder": "AbandonedOffice/Lab5",
+"loc": [
+-1179,
+7561,
+78
+],
+"yaw": 0.0,
+"bmin": [
+-1207,
+7493,
+-10
+],
+"bmax": [
+-975,
+7629,
+173
+]
+}
+]

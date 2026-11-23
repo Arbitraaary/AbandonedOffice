@@ -13,6 +13,8 @@
 
 class ABaseWeapon;
 class UCameraComponent;
+class USpringArmComponent;
+class UAnimMontage;
 class UInputMappingContext;
 class UInputAction;
 class UPhysicsHandleComponent;
@@ -38,8 +40,41 @@ protected:
 	AActivePlayerController* PlayerController;
 
 	// CAMERA BEGIN
+	// first-person camera in the head (also used for aiming down the sights and for picking things up)
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = Camera)
 	UCameraComponent* CameraComponent;
+
+	// third-person view: a camera on a spring arm over the right shoulder, so the character's animations are visible
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+	USpringArmComponent* CameraBoom;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
+	UCameraComponent* ThirdPersonCamera;
+
+	// the game starts in the first-person view; V switches to a free third-person camera that orbits the character
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Camera)
+	bool bThirdPerson = false;
+
+	// V: third person <-> first person (the key is mapped in code, no input asset needed)
+	UPROPERTY()
+	UInputAction* ToggleViewAction;
+
+	UPROPERTY()
+	UInputMappingContext* ViewMappingContext;
+
+	void ToggleView(const FInputActionValue& Value);
+
+	// switches the active camera: third person unless aiming down the sights or in first person
+	void UpdateActiveCamera();
+
+	// the camera the player is looking through right now
+	UCameraComponent* GetViewCamera() const;
+
+	// turns the body to the camera's yaw (used before a shot in third person)
+	void FaceViewDirection();
+
+	// hides the editor's camera models so they never appear in the game
+	void HideCameraModels() const;
 	// CAMERA END
 
 	// MOVEMENT BEGIN
@@ -110,6 +145,23 @@ protected:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnReload();
+
+	// reload montage in three sections: "Start" (weapon goes down), "Loop" (rounds go in, repeats itself),
+	// "End" (weapon comes back up). The Loop section carries the Reload Cycle notify.
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Weapon)
+	UAnimMontage* ReloadMontage;
+
+	// rounds loaded per cycle of the Loop section
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Weapon)
+	int32 RoundsPerReloadCycle = 10;
+
+	UPROPERTY(BlueprintReadOnly, Category = Weapon)
+	bool bIsReloading = false;
+
+	UFUNCTION()
+	void OnReloadMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+
+	void UpdateAmmoHUD() const;
 	// Shooting END
 
 	// Damage START
@@ -207,4 +259,11 @@ public:
 	void MakeInvincibleFor(float Seconds);
 
 	void TeleportToLocation(FVector Location);
+
+public:
+	// called by the Reload Cycle notify once per Loop cycle: loads a few rounds, finishes when the magazine is full
+	void OnReloadCycle();
+
+	// called by the Magazine Out notify: the left hand pulls the magazine out of the weapon
+	void OnMagazineOut();
 };

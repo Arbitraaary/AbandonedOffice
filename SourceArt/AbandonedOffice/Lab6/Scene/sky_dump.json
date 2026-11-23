@@ -1,0 +1,620 @@
+{
+ "actors": [
+  {
+   "label": "LightmassImportanceVolume",
+   "class": "LightmassImportanceVolume",
+   "path": "/Script/Engine.LightmassImportanceVolume",
+   "loc": [
+    0,
+    81,
+    1625
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "components": [
+    {
+     "comp": "BrushComponent",
+     "mobility": "<ComponentMobility.STATIC: 0>"
+    }
+   ]
+  },
+  {
+   "label": "AtmosphericFog",
+   "class": "AtmosphericFog",
+   "path": "/Script/Engine.AtmosphericFog",
+   "loc": [
+    0,
+    0,
+    -100000
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "components": [
+    {
+     "comp": "BillboardComponent",
+     "mobility": "<ComponentMobility.MOVABLE: 2>"
+    },
+    {
+     "comp": "AtmosphericFogComponent",
+     "mobility": "<ComponentMobility.MOVABLE: 2>"
+    },
+    {
+     "comp": "ArrowComponent",
+     "mobility": "<ComponentMobility.MOVABLE: 2>"
+    }
+   ]
+  },
+  {
+   "label": "SkySphereBlueprint",
+   "class": "BP_Sky_Sphere_C",
+   "path": "/Engine/EngineSky/BP_Sky_Sphere.BP_Sky_Sphere_C",
+   "loc": [
+    0,
+    0,
+    0
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "components": [
+    {
+     "comp": "SceneComponent",
+     "mobility": "<ComponentMobility.STATIC: 0>"
+    },
+    {
+     "comp": "StaticMeshComponent",
+     "mobility": "<ComponentMobility.STATIC: 0>",
+     "static_mesh": "/Engine/EngineSky/SM_SkySphere.SM_SkySphere"
+    }
+   ]
+  },
+  {
+   "label": "Light Source",
+   "class": "DirectionalLight",
+   "path": "/Script/Engine.DirectionalLight",
+   "loc": [
+    648,
+    -119,
+    570
+   ],
+   "rot": [
+    41.3,
+    -55.5,
+    -116.4
+   ],
+   "components": [
+    {
+     "comp": "DirectionalLightComponent",
+     "intensity": "3.0",
+     "light_color": "<Struct 'Color' (0x000001DDEC4975B8) {b: 255, g: 255, r: 255, a: 255}>",
+     "mobility": "<ComponentMobility.MOVABLE: 2>",
+     "atmosphere_sun_light": "True",
+     "cast_shadows": "True",
+     "use_temperature": "False",
+     "temperature": "6500.0"
+    },
+    {
+     "comp": "ArrowComponent",
+     "mobility": "<ComponentMobility.MOVABLE: 2>"
+    },
+    {
+     "comp": "BillboardComponent",
+     "mobility": "<ComponentMobility.MOVABLE: 2>"
+    }
+   ]
+  },
+  {
+   "label": "PostProcessVolume",
+   "class": "PostProcessVolume",
+   "path": "/Script/Engine.PostProcessVolume",
+   "loc": [
+    -926,
+    87,
+    660
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "components": [
+    {
+     "comp": "BrushComponent",
+     "mobility": "<ComponentMobility.MOVABLE: 2>"
+    }
+   ]
+  },
+  {
+   "label": "SkyLight",
+   "class": "SkyLight",
+   "path": "/Script/Engine.SkyLight",
+   "loc": [
+    30,
+    89,
+    90
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "components": [
+    {
+     "comp": "BillboardComponent",
+     "mobility": "<ComponentMobility.MOVABLE: 2>"
+    },
+    {
+     "comp": "SkyLightComponent",
+     "intensity": "1.0",
+     "light_color": "<Struct 'Color' (0x000001DDEC49FCB8) {b: 255, g: 255, r: 255, a: 255}>",
+     "mobility": "<ComponentMobility.MOVABLE: 2>",
+     "real_time_capture": "True",
+     "source_type": "<SkyLightSourceType.SLS_SPECIFIED_CUBEMAP: 1>",
+     "cubemap": "None",
+     "cast_shadows": "True"
+    },
+    {
+     "comp": "BillboardComponent",
+     "mobility": "<ComponentMobility.MOVABLE: 2>"
+    }
+   ]
+  },
+  {
+   "label": "NavMeshBoundsVolume",
+   "class": "NavMeshBoundsVolume",
+   "path": "/Script/NavigationSystem.NavMeshBoundsVolume",
+   "loc": [
+    0,
+    9560,
+    3400
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "components": [
+    {
+     "comp": "BrushComponent",
+     "mobility": "<ComponentMobility.STATIC: 0>"
+    }
+   ]
+  },
+  {
+   "label": "AbandonedHaze",
+   "class": "ExponentialHeightFog",
+   "path": "/Script/Engine.ExponentialHeightFog",
+   "loc": [
+    0,
+    0,
+    0
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "components": [
+    {
+     "comp": "BillboardComponent",
+     "mobility": "<ComponentMobility.MOVABLE: 2>"
+    },
+    {
+     "comp": "ExponentialHeightFogComponent",
+     "mobility": "<ComponentMobility.MOVABLE: 2>",
+     "fog_density": "0.029999999329447746",
+     "fog_height_falloff": "0.11999999731779099"
+    }
+   ]
+  }
+ ],
+ "streetlamps": [
+  {
+   "label": "RoadLamp_00",
+   "mesh": "SM_StreetLamp_Broken",
+   "loc": [
+    24357,
+    8895,
+    0
+   ],
+   "yaw": -172,
+   "top": 687,
+   "bmin": [
+    24289,
+    8877
+   ],
+   "bmax": [
+    24394,
+    9252
+   ]
+  },
+  {
+   "label": "RoadLamp_01",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    21881,
+    8895,
+    0
+   ],
+   "yaw": 173,
+   "top": 734,
+   "bmin": [
+    21863,
+    8877
+   ],
+   "bmax": [
+    21923,
+    9102
+   ]
+  },
+  {
+   "label": "RoadLamp_02",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    19486,
+    8895,
+    0
+   ],
+   "yaw": 177,
+   "top": 734,
+   "bmin": [
+    19469,
+    8878
+   ],
+   "bmax": [
+    19513,
+    9103
+   ]
+  },
+  {
+   "label": "RoadLamp_03",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    17217,
+    8895,
+    0
+   ],
+   "yaw": -173,
+   "top": 734,
+   "bmin": [
+    17175,
+    8877
+   ],
+   "bmax": [
+    17235,
+    9102
+   ]
+  },
+  {
+   "label": "RoadLamp_04",
+   "mesh": "SM_StreetLamp_Broken",
+   "loc": [
+    14737,
+    8895,
+    0
+   ],
+   "yaw": -163,
+   "top": 687,
+   "bmin": [
+    14616,
+    8875
+   ],
+   "bmax": [
+    14775,
+    9245
+   ]
+  },
+  {
+   "label": "RoadLamp_05",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    12267,
+    8895,
+    0
+   ],
+   "yaw": -173,
+   "top": 734,
+   "bmin": [
+    12227,
+    8877
+   ],
+   "bmax": [
+    12285,
+    9102
+   ]
+  },
+  {
+   "label": "RoadLamp_06",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    9844,
+    8895,
+    0
+   ],
+   "yaw": 172,
+   "top": 734,
+   "bmin": [
+    9826,
+    8877
+   ],
+   "bmax": [
+    9888,
+    9102
+   ]
+  },
+  {
+   "label": "RoadLamp_07",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    7583,
+    8895,
+    0
+   ],
+   "yaw": 174,
+   "top": 734,
+   "bmin": [
+    7565,
+    8878
+   ],
+   "bmax": [
+    7619,
+    9103
+   ]
+  },
+  {
+   "label": "RoadLamp_08",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    5111,
+    8895,
+    0
+   ],
+   "yaw": -175,
+   "top": 734,
+   "bmin": [
+    5079,
+    8878
+   ],
+   "bmax": [
+    5128,
+    9103
+   ]
+  },
+  {
+   "label": "RoadLamp_09",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    2748,
+    8895,
+    0
+   ],
+   "yaw": 175,
+   "top": 734,
+   "bmin": [
+    2731,
+    8878
+   ],
+   "bmax": [
+    2784,
+    9103
+   ]
+  },
+  {
+   "label": "RoadLamp_10",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    398,
+    8895,
+    0
+   ],
+   "yaw": -179,
+   "top": 734,
+   "bmin": [
+    379,
+    8879
+   ],
+   "bmax": [
+    414,
+    9102
+   ]
+  },
+  {
+   "label": "RoadLamp_11",
+   "mesh": "SM_StreetLamp_Broken",
+   "loc": [
+    -2095,
+    8895,
+    0
+   ],
+   "yaw": 146,
+   "top": 687,
+   "bmin": [
+    -2117,
+    8862
+   ],
+   "bmax": [
+    -1866,
+    9198
+   ]
+  },
+  {
+   "label": "RoadLamp_12",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    -4564,
+    8895,
+    0
+   ],
+   "yaw": -172,
+   "top": 734,
+   "bmin": [
+    -4608,
+    8877
+   ],
+   "bmax": [
+    -4546,
+    9102
+   ]
+  },
+  {
+   "label": "RoadLamp_13",
+   "mesh": "SM_StreetLamp_Broken",
+   "loc": [
+    -6948,
+    8895,
+    0
+   ],
+   "yaw": 177,
+   "top": 687,
+   "bmin": [
+    -6965,
+    8877
+   ],
+   "bmax": [
+    -6894,
+    9251
+   ]
+  },
+  {
+   "label": "RoadLamp_14",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    -9322,
+    8895,
+    0
+   ],
+   "yaw": -176,
+   "top": 734,
+   "bmin": [
+    -9354,
+    8878
+   ],
+   "bmax": [
+    -9305,
+    9103
+   ]
+  },
+  {
+   "label": "RoadLamp_15",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    -11624,
+    8895,
+    0
+   ],
+   "yaw": 176,
+   "top": 734,
+   "bmin": [
+    -11640,
+    8878
+   ],
+   "bmax": [
+    -11595,
+    9103
+   ]
+  },
+  {
+   "label": "RoadLamp_16",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    -14007,
+    8895,
+    0
+   ],
+   "yaw": 179,
+   "top": 734,
+   "bmin": [
+    -14023,
+    8879
+   ],
+   "bmax": [
+    -13988,
+    9102
+   ]
+  },
+  {
+   "label": "RoadLamp_17",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    -16408,
+    8895,
+    0
+   ],
+   "yaw": -173,
+   "top": 734,
+   "bmin": [
+    -16447,
+    8877
+   ],
+   "bmax": [
+    -16390,
+    9102
+   ]
+  },
+  {
+   "label": "RoadLamp_19",
+   "mesh": "SM_StreetLamp_Broken",
+   "loc": [
+    -21300,
+    8895,
+    0
+   ],
+   "yaw": -178,
+   "top": 687,
+   "bmin": [
+    -21329,
+    8878
+   ],
+   "bmax": [
+    -21264,
+    9252
+   ]
+  },
+  {
+   "label": "DriveLamp_00",
+   "mesh": "SM_StreetLamp",
+   "loc": [
+    -1550,
+    4795,
+    0
+   ],
+   "yaw": -96,
+   "top": 734,
+   "bmin": [
+    -1758,
+    4778
+   ],
+   "bmax": [
+    -1533,
+    4831
+   ]
+  },
+  {
+   "label": "DriveLamp_01",
+   "mesh": "SM_StreetLamp_Broken",
+   "loc": [
+    -2590,
+    6495,
+    0
+   ],
+   "yaw": 95,
+   "top": 687,
+   "bmin": [
+    -2607,
+    6459
+   ],
+   "bmax": [
+    -2232,
+    6539
+   ]
+  }
+ ]
+}

@@ -7,6 +7,8 @@
 #include "BaseWeapon.generated.h"
 
 class UBoxComponent;
+class UStaticMesh;
+class UStaticMeshComponent;
 class ABullet;
 
 UCLASS()
@@ -55,6 +57,26 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Properties")
 	FName MuzzleSocketName;
 	
+	// RELOAD VISUALS BEGIN
+	// magazine model held in the hand during the reload; if empty it is found next to the weapon mesh
+	// (SK_KA47_X -> SM_KA47_Mag, SK_KA74U_X -> SM_KA74U_Mag_X ...)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Reload")
+	UStaticMesh* MagazineMesh = nullptr;
+
+	// the magazine bone of the weapon mesh (hidden while the magazine is in the hand)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Reload")
+	FName MagazineBoneName = TEXT("b_gun_mag");
+
+	// the hand bone the magazine follows
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Reload")
+	FName MagazineHandBone = TEXT("hand_l");
+
+	UPROPERTY()
+	UStaticMeshComponent* HandMagazine = nullptr;
+
+	UStaticMesh* FindMagazineMesh();
+	// RELOAD VISUALS END
+
 	bool bCanFire = true;
 
 	FTimerHandle FireRateTimerHandle;
@@ -84,6 +106,15 @@ public:
 	bool CanReload() const;
 
 	void Reload();
+
+	// one reload step: moves up to MaxRounds from the reserve into the magazine, returns how many were moved
+	int ReloadRounds(int MaxRounds);
+
+	// reload animation: the hand pulls the magazine out (it leaves the weapon and follows the hand) ...
+	void MagazineOut(USkeletalMeshComponent* HandMesh);
+
+	// ... and puts it back in (also called when the reload ends or is interrupted)
+	void MagazineIn();
 
 	void SetInfiniteAmmo(bool IsInfinite);
 

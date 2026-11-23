@@ -102,6 +102,15 @@ protected:
 
 	// pins the bar above the head and hides it when a wall is between the camera and the enemy
 	void UpdateHealthBar();
+
+	UPROPERTY(BlueprintReadOnly, Category=Weapon)
+	float WeaponAimPitch = 0.f;
+
+	UPROPERTY(BlueprintReadOnly, Category=Weapon)
+	bool bWeaponRaised = true;
+
+	UPROPERTY(BlueprintReadOnly, Category=Weapon)
+	float WeaponLoweredWeight = 0.f;
 	// HUD END
 
 	void DropWeapon();
@@ -116,6 +125,13 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, Category=Health)
 	bool IsDying = false;
+
+	// weapon pose for the animation (see UEnemyAnimInstance): aim offset pitch in degrees, 0 = raised and level.
+	// Soldiers keep the default (always raised); the guard lowers his rifle when the player is not in range.
+	float GetWeaponAimPitch() const { return WeaponAimPitch; }
+	bool IsWeaponRaised() const { return bWeaponRaised; }
+	// 0 = combat pose, 1 = rifle lowered in one hand (A_Guard_RifleLowered on the upper body)
+	float GetWeaponLoweredWeight() const { return WeaponLoweredWeight; }
 
 	UPROPERTY(BlueprintReadWrite, Category=Reactions)
 	bool CanPlayShotAnim = true;

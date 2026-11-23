@@ -6,6 +6,13 @@
 #include "EnhancedInputSubsystems.h"
 #include "KismetTraceUtils.h"
 #include "Camera/CameraComponent.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Animation/AnimInstance.h"
+#include "Animation/AnimMontage.h"
+#include "EnhancedInputSubsystems.h"
+#include "InputAction.h"
+#include "InputMappingContext.h"
+#include "InputCoreTypes.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/PawnMovementComponent.h"
@@ -31,6 +38,26 @@ AMainCharacter::AMainCharacter()
 	check(CameraComponent != nullptr);
 	CameraComponent->SetupAttachment(GetMesh(), TEXT("head"));
 	CameraComponent->bUsePawnControlRotation = true;
+
+	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
+	CameraBoom->SetupAttachment(RootComponent);
+	CameraBoom->TargetArmLength = 300.f;
+	CameraBoom->SocketOffset = FVector(0.f, 0.f, 40.f);      // centred on the character, so it can be seen from every side
+	CameraBoom->bUsePawnControlRotation = true;
+	CameraBoom->bDoCollisionTest = true;                      // pulls in instead of going through walls
+	CameraBoom->ProbeSize = 12.f;
+	CameraBoom->bEnableCameraLag = true;
+	CameraBoom->CameraLagSpeed = 18.f;
+
+	ThirdPersonCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("ThirdPersonCamera"));
+	ThirdPersonCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
+	ThirdPersonCamera->bUsePawnControlRotation = false;
+
+#if WITH_EDITORONLY_DATA
+	// the grey camera model the editor draws for camera components must never show up in the game
+	CameraComponent->bCameraMeshHiddenInGame = true;
+	ThirdPersonCamera->bCameraMeshHiddenInGame = true;
+#endif
 
 	// Movement
 	if (ACharacter::GetMovementComponent())
@@ -71,6 +98,8 @@ void AMainCharacter::BeginPlay()
 
 	ScopeButtonDown = false;
 	CanMove = true;
+	HideCameraModels();
+	UpdateActiveCamera();
 
 	AcquireWeapon(WeaponClass);
 	ChangeHealth(MaxHealth);
@@ -123,6 +152,7 @@ void AMainCharacter::Scope(const FInputActionValue& Value)
 	if (const bool NewValue = Value.Get<bool>(); ScopeButtonDown != NewValue)
 	{
 		ScopeButtonDown = NewValue;
+		UpdateActiveCamera();
 		if (ScopeButtonDown)
 		{
 			PlayerController->HideCrosshair();
@@ -147,9 +177,16 @@ void AMainCharacter::Fire(const FInputActionValue& Value)
 	if (WeaponClass == nullptr) return;
 	if (!CanShoot) return;
 
-	//const FRotator CameraRotation = GetBaseAimRotation();
-	const FVector CameraLocation = CameraComponent->GetComponentLocation();
-	const FVector CameraDirection = CameraComponent->GetForwardVector();
+	// orbiting camera: the character turns to where the camera looks before shooting
+	if (bThirdPerson && !ScopeButtonDown)
+	{
+		FaceViewDirection();
+	}
+
+	// aim from the camera the player looks through: the bullet goes where the centre of the screen points
+	const UCameraComponent* ViewCamera = GetViewCamera();
+	const FVector CameraLocation = ViewCamera->GetComponentLocation();
+	const FVector CameraDirection = ViewCamera->GetForwardVector();
 
 	const FVector MuzzleLocation = Weapon->GetMuzzleLocation();
 	const FVector SightLocation = Weapon->GetSightLocation();
@@ -197,16 +234,70 @@ void AMainCharacter::Fire(const FInputActionValue& Value)
 
 void AMainCharacter::Reload(const FInputActionValue& Value)
 {
-	if (Weapon->CanReload())
+	if (!Weapon || bIsReloading || !Weapon->CanReload()) return;
+
+	UAnimInstance* Anim = GetMesh() ? GetMesh()->GetAnimInstance() : nullptr;
+	if (!ReloadMontage || !Anim)
 	{
+		// no montage set: the old instant reload
 		CanShoot = false;
 		Weapon->Reload();
 		OnReload();
-		
-		PlayerController->UpdateUnequippedAmmoCount(Weapon->GetUnequippedAmmoCount());
-		PlayerController->UpdateAmmoInMagCount(Weapon->GetMagazineAmmoCount());
+		UpdateAmmoHUD();
+		return;
 	}
 
+	// Start (weapon down) -> Loop (rounds in, repeats; each cycle calls OnReloadCycle) -> End (weapon up)
+	if (Anim->Montage_Play(ReloadMontage) <= 0.f) return;
+	bIsReloading = true;
+	CanShoot = false;
+	FOnMontageEnded EndDelegate;
+	EndDelegate.BindUObject(this, &AMainCharacter::OnReloadMontageEnded);
+	Anim->Montage_SetEndDelegate(EndDelegate, ReloadMontage);
+}
+
+void AMainCharacter::OnReloadCycle()
+{
+	if (!bIsReloading || !Weapon) return;
+	Weapon->MagazineIn();                          // the magazine from the hand goes back into the weapon
+	Weapon->ReloadRounds(RoundsPerReloadCycle);
+	UpdateAmmoHUD();
+
+	// magazine full (or no rounds left): leave the loop and raise the weapon
+	if (!Weapon->CanReload())
+	{
+		if (UAnimInstance* Anim = GetMesh()->GetAnimInstance())
+		{
+			Anim->Montage_JumpToSection(TEXT("End"), ReloadMontage);
+		}
+	}
+}
+
+void AMainCharacter::OnReloadMontageEnded(UAnimMontage* Montage, bool bInterrupted)
+{
+	// interrupted (e.g. by a hit reaction): the rounds already loaded stay, R starts the reload again
+	bIsReloading = false;
+	CanShoot = true;
+	if (Weapon)
+	{
+		Weapon->MagazineIn();                      // never leave the magazine in the hand
+	}
+	UpdateAmmoHUD();
+}
+
+void AMainCharacter::OnMagazineOut()
+{
+	if (bIsReloading && Weapon)
+	{
+		Weapon->MagazineOut(GetMesh());
+	}
+}
+
+void AMainCharacter::UpdateAmmoHUD() const
+{
+	if (!PlayerController || !Weapon) return;
+	PlayerController->UpdateUnequippedAmmoCount(Weapon->GetUnequippedAmmoCount());
+	PlayerController->UpdateAmmoInMagCount(Weapon->GetMagazineAmmoCount());
 }
 
 void AMainCharacter::Pick(const FInputActionValue& Value)
@@ -432,6 +523,23 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 		Input->BindAction(FireAction, ETriggerEvent::Triggered, this, &AMainCharacter::Fire);
 		Input->BindAction(ReloadAction, ETriggerEvent::Triggered, this, &AMainCharacter::Reload);
 		Input->BindAction(PickAction, ETriggerEvent::Triggered, this, &AMainCharacter::Pick);
+
+		// V toggles the view; the action and its key are created here, on top of the project's mapping context
+		if (!ToggleViewAction)
+		{
+			ToggleViewAction = NewObject<UInputAction>(this);
+			ToggleViewAction->ValueType = EInputActionValueType::Boolean;
+			ViewMappingContext = NewObject<UInputMappingContext>(this);
+			ViewMappingContext->MapKey(ToggleViewAction, EKeys::V);
+		}
+		if (const APlayerController* PC = Cast<APlayerController>(GetController()))
+		{
+			if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PC->GetLocalPlayer()))
+			{
+				Subsystem->AddMappingContext(ViewMappingContext, 1);
+			}
+		}
+		Input->BindAction(ToggleViewAction, ETriggerEvent::Started, this, &AMainCharacter::ToggleView);
 	}
 
 }
@@ -559,3 +667,55 @@ void AMainCharacter::TeleportToLocation(FVector Location)
 	SetActorLocation(Location);
 }
 
+
+void AMainCharacter::ToggleView(const FInputActionValue& Value)
+{
+	bThirdPerson = !bThirdPerson;
+	UpdateActiveCamera();
+}
+
+void AMainCharacter::UpdateActiveCamera()
+{
+	const bool bUseThird = bThirdPerson && !ScopeButtonDown;
+	ThirdPersonCamera->SetActive(bUseThird);
+	CameraComponent->SetActive(!bUseThird);
+
+	// third person: the mouse orbits the camera around the character (all sides), the body turns to where it walks;
+	// first person (and aiming): the body follows the view as before
+	bUseControllerRotationYaw = !bUseThird;
+	if (UCharacterMovementComponent* MoveComp = GetCharacterMovement())
+	{
+		MoveComp->bOrientRotationToMovement = bUseThird;
+		MoveComp->RotationRate = FRotator(0.f, 540.f, 0.f);
+	}
+}
+
+void AMainCharacter::FaceViewDirection()
+{
+	if (!Controller) return;
+	SetActorRotation(FRotator(0.f, Controller->GetControlRotation().Yaw, 0.f));
+}
+
+UCameraComponent* AMainCharacter::GetViewCamera() const
+{
+	return ThirdPersonCamera && ThirdPersonCamera->IsActive() ? ThirdPersonCamera : CameraComponent;
+}
+
+void AMainCharacter::HideCameraModels() const
+{
+	// editor-only helpers attached to the cameras (camera model, frustum) - hidden in play as well
+	for (UCameraComponent* Cam : {CameraComponent, ThirdPersonCamera})
+	{
+		if (!Cam) continue;
+		TArray<USceneComponent*> CameraHelpers;
+		Cam->GetChildrenComponents(true, CameraHelpers);
+		for (USceneComponent* Helper : CameraHelpers)
+		{
+			if (UPrimitiveComponent* Prim = Cast<UPrimitiveComponent>(Helper))
+			{
+				Prim->SetHiddenInGame(true);
+				Prim->SetVisibility(false);
+			}
+		}
+	}
+}

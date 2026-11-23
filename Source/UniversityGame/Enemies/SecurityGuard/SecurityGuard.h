@@ -63,6 +63,23 @@ public:
 
 	bool IsDead() const { return IsDying; }
 
+	// ---------------------------------------------------------------- weapon pose (lab 6)
+	// while the player is not in range the rifle hangs in the right hand barrel-down (A_Guard_RifleLowered);
+	// in range he takes it in both hands and aims (combat pose + aim offset)
+	// seconds to raise the rifle when the player comes into range / to lower it again
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Guard|Weapon")
+	float RaiseTime = 0.35f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Guard|Weapon")
+	float LowerTime = 0.6f;
+
+	// on-screen line with what drives the weapon pose (sees / in range / lowered weight / slot montage)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Guard|Weapon")
+	bool bShowWeaponDebug = false;
+
+	// the rifle is fully up - only then he shoots
+	bool IsWeaponReady() const { return WeaponRaiseAlpha > 0.95f; }
+
 	// ---------------------------------------------------------------- obstacles
 	// live cables: damage, he freezes and shakes for StunSeconds ("SHOCKED!")
 	void Electrocute(float Damage, float StunSeconds, AActor* Source);
@@ -141,6 +158,13 @@ private:
 	UAnimMontage* PlayAnim(UAnimSequenceBase* Anim, float Rate = 1.f, float BlendIn = 0.1f, float BlendOut = 0.2f);
 	UGuardHealthBarWidget* GetBar() const;
 	void AlertController(AActor* Threat) const;
+	void UpdateWeaponPose(float DeltaTime);
+	float WeaponRaiseAlpha = 0.f;              // 0 = lowered, 1 = raised
+	bool bWantedRaised = false;
+	// actors the dead body may lie against without being pushed out of them (the automatic glass door)
+	UPROPERTY()
+	TArray<TObjectPtr<AActor>> BodyPushIgnored;
+	bool bBodyPushIgnoredReady = false;
 
 	bool bRunning = false;
 	bool bInSmoke = false;
